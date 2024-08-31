@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "502449802235",
+    "project_id": "factorapp-5cc7a",
+    "storage_bucket": "factorapp-5cc7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502449802235:android:277fd4da24e8087163d95e",
+        "android_client_info": {
+          "package_name": "com.mycompany.factorapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACIRqVOTBgD9RWgTlzBUh-EZ-zYHQaWBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
