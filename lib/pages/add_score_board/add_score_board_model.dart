@@ -1,11 +1,11 @@
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/nav_header/nav_header_widget.dart';
 import '/components/nav_menu_left/nav_menu_left_widget.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'add_score_board_widget.dart' show AddScoreBoardWidget;
-import 'dart:async';
 import 'package:flutter/material.dart';
 
 class AddScoreBoardModel extends FlutterFlowModel<AddScoreBoardWidget> {
@@ -44,7 +44,6 @@ class AddScoreBoardModel extends FlutterFlowModel<AddScoreBoardWidget> {
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
-  Completer<JobsRecord>? documentRequestCompleter;
   // State field(s) for txtCompletionTime widget.
   FocusNode? txtCompletionTimeFocusNode;
   TextEditingController? txtCompletionTimeTextController;
@@ -73,21 +72,5 @@ class AddScoreBoardModel extends FlutterFlowModel<AddScoreBoardWidget> {
 
     txtCompletionTimeFocusNode?.dispose();
     txtCompletionTimeTextController?.dispose();
-  }
-
-  /// Additional helper methods.
-  Future waitForDocumentRequestCompleted({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(const Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = documentRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
   }
 }

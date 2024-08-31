@@ -9,7 +9,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -96,12 +95,8 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                               title: 'Add Scoreboard',
                             ),
                           ),
-                          FutureBuilder<JobsRecord>(
-                            future: (_model.documentRequestCompleter ??=
-                                    Completer<JobsRecord>()
-                                      ..complete(JobsRecord.getDocumentOnce(
-                                          widget.job!)))
-                                .future,
+                          StreamBuilder<JobsRecord>(
+                            stream: JobsRecord.getDocument(widget.job!),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
@@ -510,7 +505,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                               paginated: false,
                                                                               selectable: false,
                                                                               width: MediaQuery.sizeOf(context).width * 0.5,
-                                                                              height: (56 + 48 * containerJobsRecord.scores.length).toDouble(),
+                                                                              height: (56 + 48 + 48 * containerJobsRecord.scores.length).toDouble(),
                                                                               minWidth: MediaQuery.sizeOf(context).width * 0.5,
                                                                               headingRowHeight: 56.0,
                                                                               dataRowHeight: 48.0,
@@ -822,8 +817,6 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                     },
                                                                                   ),
                                                                                 });
-                                                                                setState(() => _model.documentRequestCompleter = null);
-                                                                                await _model.waitForDocumentRequestCompleted();
                                                                                 setState(() {
                                                                                   _model.txtTargetReachedTextController?.clear();
                                                                                 });
