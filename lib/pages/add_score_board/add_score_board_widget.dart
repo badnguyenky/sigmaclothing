@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -95,8 +96,12 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                               title: 'Add Scoreboard',
                             ),
                           ),
-                          StreamBuilder<JobsRecord>(
-                            stream: JobsRecord.getDocument(widget.job!),
+                          FutureBuilder<JobsRecord>(
+                            future: (_model.documentRequestCompleter ??=
+                                    Completer<JobsRecord>()
+                                      ..complete(JobsRecord.getDocumentOnce(
+                                          widget.job!)))
+                                .future,
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
@@ -817,6 +822,8 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                     },
                                                                                   ),
                                                                                 });
+                                                                                setState(() => _model.documentRequestCompleter = null);
+                                                                                await _model.waitForDocumentRequestCompleted();
                                                                                 setState(() {
                                                                                   _model.txtTargetReachedTextController?.clear();
                                                                                 });
