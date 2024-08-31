@@ -505,7 +505,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                               paginated: false,
                                                                               selectable: false,
                                                                               width: MediaQuery.sizeOf(context).width * 0.5,
-                                                                              height: (56 + 48 + 48 * containerJobsRecord.scores.length).toDouble(),
+                                                                              height: (56 + 48 * containerJobsRecord.scores.length).toDouble(),
                                                                               minWidth: MediaQuery.sizeOf(context).width * 0.5,
                                                                               headingRowHeight: 56.0,
                                                                               dataRowHeight: 48.0,
@@ -817,13 +817,19 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                     },
                                                                                   ),
                                                                                 });
-                                                                                setState(() {
-                                                                                  _model.txtTargetReachedTextController?.clear();
-                                                                                });
-                                                                                setState(() {
-                                                                                  _model.txtScoreTimeTextController?.text = '--:-- --';
-                                                                                  _model.txtScoreTimeTextController?.selection = TextSelection.collapsed(offset: _model.txtScoreTimeTextController!.text.length);
-                                                                                });
+                                                                                if (Navigator.of(context).canPop()) {
+                                                                                  context.pop();
+                                                                                }
+                                                                                context.pushNamed(
+                                                                                  'AddScoreBoard',
+                                                                                  queryParameters: {
+                                                                                    'job': serializeParam(
+                                                                                      widget.job,
+                                                                                      ParamType.DocumentReference,
+                                                                                    ),
+                                                                                  }.withoutNulls,
+                                                                                );
+
                                                                                 return;
                                                                               }
                                                                             },
