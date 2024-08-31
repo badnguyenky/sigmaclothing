@@ -799,27 +799,27 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                 );
                                                                                 return;
                                                                               } else {
+                                                                                _model.scoresList = containerJobsRecord.scores.toList().cast<ScoreStruct>();
+                                                                                setState(() {});
+                                                                                _model.addToScoresList(ScoreStruct(
+                                                                                  time: _model.datePicked1,
+                                                                                  performance: _model.dropDownValue,
+                                                                                  targetReached: int.tryParse(_model.txtTargetReachedTextController.text),
+                                                                                ));
+                                                                                setState(() {});
+
                                                                                 await widget.job!.update({
                                                                                   ...mapToFirestore(
                                                                                     {
-                                                                                      'scores': FieldValue.arrayUnion([
-                                                                                        getScoreFirestoreData(
-                                                                                          createScoreStruct(
-                                                                                            time: _model.datePicked1,
-                                                                                            performance: _model.dropDownValue,
-                                                                                            targetReached: int.tryParse(_model.txtTargetReachedTextController.text),
-                                                                                            clearUnsetFields: false,
-                                                                                          ),
-                                                                                          true,
-                                                                                        )
-                                                                                      ]),
+                                                                                      'scores': getScoreListFirestoreData(
+                                                                                        _model.scoresList,
+                                                                                      ),
                                                                                     },
                                                                                   ),
                                                                                 });
                                                                                 setState(() {
                                                                                   _model.txtTargetReachedTextController?.clear();
                                                                                 });
-                                                                                _model.paginatedDataTableController.paginatorController.setRowsPerPage(containerJobsRecord.scores.length);
                                                                                 setState(() {
                                                                                   _model.txtScoreTimeTextController?.text = '--:-- --';
                                                                                   _model.txtScoreTimeTextController?.selection = TextSelection.collapsed(offset: _model.txtScoreTimeTextController!.text.length);

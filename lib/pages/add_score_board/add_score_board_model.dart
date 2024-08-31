@@ -9,6 +9,17 @@ import 'add_score_board_widget.dart' show AddScoreBoardWidget;
 import 'package:flutter/material.dart';
 
 class AddScoreBoardModel extends FlutterFlowModel<AddScoreBoardWidget> {
+  ///  Local state fields for this page.
+
+  List<ScoreStruct> scoresList = [];
+  void addToScoresList(ScoreStruct item) => scoresList.add(item);
+  void removeFromScoresList(ScoreStruct item) => scoresList.remove(item);
+  void removeAtIndexFromScoresList(int index) => scoresList.removeAt(index);
+  void insertAtIndexInScoresList(int index, ScoreStruct item) =>
+      scoresList.insert(index, item);
+  void updateScoresListAtIndex(int index, Function(ScoreStruct) updateFn) =>
+      scoresList[index] = updateFn(scoresList[index]);
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
