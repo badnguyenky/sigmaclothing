@@ -97,7 +97,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ScoreView',
           path: '/scoreView',
           requireAuth: true,
-          builder: (context, params) => const ScoreViewWidget(),
+          asyncParams: {
+            'job': getDoc(['jobs'], JobsRecord.fromSnapshot),
+          },
+          builder: (context, params) => ScoreViewWidget(
+            job: params.getParam(
+              'job',
+              ParamType.Document,
+            ),
+          ),
         ),
         FFRoute(
           name: 'Dashboard',

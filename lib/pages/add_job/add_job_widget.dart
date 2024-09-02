@@ -1045,6 +1045,7 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                     0.0, 0.0, 15.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
+                                                var shouldSetState = false;
                                                 if (_model.formKey
                                                             .currentState ==
                                                         null ||
@@ -1057,49 +1058,87 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                     null) {
                                                   return;
                                                 }
-                                                _model.latestJob =
-                                                    await queryJobsRecordOnce(
-                                                  queryBuilder: (jobsRecord) =>
-                                                      jobsRecord.orderBy(
-                                                          'created_at',
-                                                          descending: true),
-                                                  singleRecord: true,
-                                                ).then((s) => s.firstOrNull);
+                                                _model.cell = await CellsRecord
+                                                    .getDocumentOnce(
+                                                        _model.selectedCell!);
+                                                shouldSetState = true;
+                                                if (_model.cell?.isHaveJob ==
+                                                    true) {
+                                                  ScaffoldMessenger.of(context)
+                                                      .clearSnackBars();
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: const Text(
+                                                        'Seleted cell is already assigned to another job',
+                                                        style: TextStyle(
+                                                          color: Colors.white,
+                                                        ),
+                                                      ),
+                                                      duration: const Duration(
+                                                          milliseconds: 3000),
+                                                      backgroundColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                    ),
+                                                  );
+                                                  if (shouldSetState) {
+                                                    setState(() {});
+                                                  }
+                                                  return;
+                                                } else {
+                                                  _model.latestJob =
+                                                      await queryJobsRecordOnce(
+                                                    queryBuilder:
+                                                        (jobsRecord) =>
+                                                            jobsRecord.orderBy(
+                                                                'created_at',
+                                                                descending:
+                                                                    true),
+                                                    singleRecord: true,
+                                                  ).then((s) => s.firstOrNull);
+                                                  shouldSetState = true;
 
-                                                await JobsRecord.collection
-                                                    .doc()
-                                                    .set(createJobsRecordData(
-                                                      id: _model.latestJob !=
-                                                              null
-                                                          ? (_model.latestJob!
-                                                                  .id +
-                                                              1)
-                                                          : 1,
-                                                      jobName: _model
-                                                          .textController1.text,
-                                                      styleNo: _model
-                                                          .textController2.text,
-                                                      cellRef:
-                                                          _model.selectedCell,
-                                                      targetPerDay:
-                                                          int.tryParse(_model
-                                                              .textController4
-                                                              .text),
-                                                      targetPerHour:
-                                                          int.tryParse(_model
-                                                              .textController3
-                                                              .text),
-                                                      createdAt:
-                                                          getCurrentTimestamp,
-                                                      status:
-                                                          _model.switchValue,
-                                                      completionStatus: false,
-                                                      updatedAt:
-                                                          getCurrentTimestamp,
-                                                    ));
-                                                context.safePop();
+                                                  await JobsRecord.collection
+                                                      .doc()
+                                                      .set(createJobsRecordData(
+                                                        id: _model.latestJob !=
+                                                                null
+                                                            ? (_model.latestJob!
+                                                                    .id +
+                                                                1)
+                                                            : 1,
+                                                        jobName: _model
+                                                            .textController1
+                                                            .text,
+                                                        styleNo: _model
+                                                            .textController2
+                                                            .text,
+                                                        cellRef:
+                                                            _model.selectedCell,
+                                                        targetPerDay:
+                                                            int.tryParse(_model
+                                                                .textController4
+                                                                .text),
+                                                        targetPerHour:
+                                                            int.tryParse(_model
+                                                                .textController3
+                                                                .text),
+                                                        createdAt:
+                                                            getCurrentTimestamp,
+                                                        status:
+                                                            _model.switchValue,
+                                                        completionStatus: false,
+                                                        updatedAt:
+                                                            getCurrentTimestamp,
+                                                      ));
+                                                  context.safePop();
+                                                }
 
-                                                setState(() {});
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
                                               },
                                               text: 'Save',
                                               options: FFButtonOptions(

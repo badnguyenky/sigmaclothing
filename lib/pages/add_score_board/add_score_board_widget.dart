@@ -1290,11 +1290,16 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                           0.0, 0.0, 15.0, 0.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
+                                                      if (containerJobsRecord
+                                                              .scores.isEmpty) {
+                                                        return;
+                                                      }
+
                                                       await widget.job!.update(
                                                           createJobsRecordData(
-                                                        status: true,
                                                         completionTime:
                                                             _model.datePicked2,
+                                                        completionStatus: true,
                                                       ));
                                                     },
                                                     text: 'Save',

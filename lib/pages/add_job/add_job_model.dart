@@ -72,6 +72,8 @@ class AddJobModel extends FlutterFlowModel<AddJobWidget> {
 
   // State field(s) for Switch widget.
   bool? switchValue;
+  // Stores action output result for [Backend Call - Read Document] action in Button widget.
+  CellsRecord? cell;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   JobsRecord? latestJob;
 

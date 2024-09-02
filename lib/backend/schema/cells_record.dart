@@ -45,6 +45,11 @@ class CellsRecord extends FirestoreRecord {
   Color? get color => _color;
   bool hasColor() => _color != null;
 
+  // "isHaveJob" field.
+  bool? _isHaveJob;
+  bool get isHaveJob => _isHaveJob ?? false;
+  bool hasIsHaveJob() => _isHaveJob != null;
+
   void _initializeFields() {
     _id = castToType<int>(snapshotData['id']);
     _cellName = snapshotData['cell_name'] as String?;
@@ -52,6 +57,7 @@ class CellsRecord extends FirestoreRecord {
     _updatedDate = snapshotData['updated_date'] as DateTime?;
     _status = snapshotData['status'] as bool?;
     _color = getSchemaColor(snapshotData['color']);
+    _isHaveJob = snapshotData['isHaveJob'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -94,6 +100,7 @@ Map<String, dynamic> createCellsRecordData({
   DateTime? updatedDate,
   bool? status,
   Color? color,
+  bool? isHaveJob,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -103,6 +110,7 @@ Map<String, dynamic> createCellsRecordData({
       'updated_date': updatedDate,
       'status': status,
       'color': color,
+      'isHaveJob': isHaveJob,
     }.withoutNulls,
   );
 
@@ -119,7 +127,8 @@ class CellsRecordDocumentEquality implements Equality<CellsRecord> {
         e1?.createdDate == e2?.createdDate &&
         e1?.updatedDate == e2?.updatedDate &&
         e1?.status == e2?.status &&
-        e1?.color == e2?.color;
+        e1?.color == e2?.color &&
+        e1?.isHaveJob == e2?.isHaveJob;
   }
 
   @override
@@ -129,7 +138,8 @@ class CellsRecordDocumentEquality implements Equality<CellsRecord> {
         e?.createdDate,
         e?.updatedDate,
         e?.status,
-        e?.color
+        e?.color,
+        e?.isHaveJob
       ]);
 
   @override

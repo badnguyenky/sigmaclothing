@@ -465,6 +465,16 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                           ),
                         });
                         Navigator.pop(context);
+
+                        context.goNamed(
+                          'AddScoreBoard',
+                          queryParameters: {
+                            'job': serializeParam(
+                              widget.jobRef,
+                              ParamType.DocumentReference,
+                            ),
+                          }.withoutNulls,
+                        );
                       },
                       text: 'Save',
                       options: FFButtonOptions(

@@ -570,8 +570,24 @@ class _ScoreBoardWidgetState extends State<ScoreBoardWidget> {
                                                                   FFButtonWidget(
                                                                 onPressed:
                                                                     () async {
-                                                                  context.pushNamed(
-                                                                      'ScoreView');
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'ScoreView',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'job':
+                                                                          serializeParam(
+                                                                        scoreboardJobsItem,
+                                                                        ParamType
+                                                                            .Document,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      'job':
+                                                                          scoreboardJobsItem,
+                                                                    },
+                                                                  );
                                                                 },
                                                                 text: 'View',
                                                                 icon: const Icon(

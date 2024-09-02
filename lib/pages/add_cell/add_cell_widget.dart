@@ -560,6 +560,7 @@ class _AddCellWidgetState extends State<AddCellWidget> {
                                                                 .colorPicked,
                                                             updatedDate:
                                                                 getCurrentTimestamp,
+                                                            isHaveJob: false,
                                                           ));
                                                       context.safePop();
 

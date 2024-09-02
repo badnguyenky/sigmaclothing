@@ -1,3 +1,5 @@
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/nav_menu_left/nav_menu_left_widget.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,7 +13,8 @@ class ScoreViewModel extends FlutterFlowModel<ScoreViewWidget> {
   // Model for NavMenuLeft component.
   late NavMenuLeftModel navMenuLeftModel;
   // State field(s) for PaginatedDataTable widget.
-  final paginatedDataTableController = FlutterFlowDataTableController<String>();
+  final paginatedDataTableController =
+      FlutterFlowDataTableController<ScoreStruct>();
 
   @override
   void initState(BuildContext context) {
