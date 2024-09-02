@@ -76,24 +76,25 @@ List<ChartDataStruct>? productionChartData(List<JobsRecord>? jobs) {
   }
 
   // Initialize an empty map to store the aggregated data
-  final Map<DateTime, int> aggregatedData = {};
+  final Map<String, int> aggregatedData = {};
 
   // Get the current date
   final DateTime now = DateTime.now();
 
   // Calculate the start date (same month last year)
   final DateTime startDate = DateTime(now.year - 1, now.month);
-
+  // Create a date formatter for yMMM format (e.g., "Sep 2024")
+  final DateFormat formatter = DateFormat.yMMM();
   // Filter jobs and aggregate data by month
   for (final job in jobs) {
     final DateTime jobDate =
-        job.createdAt!; // Assuming JobsRecord has a date property
+        DateFormat(job.createdAt!); // Assuming JobsRecord has a date property
 
     // Check if the job date is within the required range and if the job is completed
     if (jobDate.isAfter(startDate) &&
         jobDate.isBefore(now) &&
         job.completionStatus == true) {
-      final DateTime monthKey = jobDate;
+      final String monthKey = formatter.format(jobDate);
 
       // Aggregate completed jobs by month
       if (aggregatedData.containsKey(monthKey)) {
@@ -103,12 +104,14 @@ List<ChartDataStruct>? productionChartData(List<JobsRecord>? jobs) {
       }
     }
   }
-  aggregatedData.entries.map((entry) => print(entry.toString()));
+  // aggregatedData.entries.map((entry) => print(entry.toString()));
 
   // Convert the map to a list of ChartDataStruct
   List<ChartDataStruct> chartDataList = aggregatedData.entries
       .map((entry) => ChartDataStruct(xValue: entry.key, yValue: entry.value))
       .toList();
-
+  for (var item in chartDataList) {
+    debugPrint(item.toString());
+  }
   return chartDataList;
 }

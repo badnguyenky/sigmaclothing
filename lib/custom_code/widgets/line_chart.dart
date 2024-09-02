@@ -36,9 +36,8 @@ class _LineChartState extends State<LineChart> {
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
-      primaryXAxis: DateTimeAxis(
-        dateFormat: DateFormat.yMMM(),
-        intervalType: DateTimeIntervalType.months,
+      primaryXAxis: CategoryAxis(
+        labelPlacement: LabelPlacement.onTicks,
       ),
       primaryYAxis: NumericAxis(
         minimum: 0,
@@ -46,7 +45,7 @@ class _LineChartState extends State<LineChart> {
         interval: 10,
       ),
       series: <CartesianSeries>[
-        SplineSeries<ChartDataStruct, DateTime>(
+        SplineSeries<ChartDataStruct, String>(
           color: widget.completedLineColor,
           dataSource: widget.chartData,
           xValueMapper: (ChartDataStruct data, _) => data.xValue,

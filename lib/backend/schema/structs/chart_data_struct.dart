@@ -9,7 +9,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 class ChartDataStruct extends FFFirebaseStruct {
   ChartDataStruct({
     int? yValue,
-    DateTime? xValue,
+    String? xValue,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _yValue = yValue,
         _xValue = xValue,
@@ -25,15 +25,15 @@ class ChartDataStruct extends FFFirebaseStruct {
   bool hasYValue() => _yValue != null;
 
   // "xValue" field.
-  DateTime? _xValue;
-  DateTime? get xValue => _xValue;
-  set xValue(DateTime? val) => _xValue = val;
+  String? _xValue;
+  String get xValue => _xValue ?? '';
+  set xValue(String? val) => _xValue = val;
 
   bool hasXValue() => _xValue != null;
 
   static ChartDataStruct fromMap(Map<String, dynamic> data) => ChartDataStruct(
         yValue: castToType<int>(data['yValue']),
-        xValue: data['xValue'] as DateTime?,
+        xValue: data['xValue'] as String?,
       );
 
   static ChartDataStruct? maybeFromMap(dynamic data) => data is Map
@@ -53,7 +53,7 @@ class ChartDataStruct extends FFFirebaseStruct {
         ),
         'xValue': serializeParam(
           _xValue,
-          ParamType.DateTime,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -66,7 +66,7 @@ class ChartDataStruct extends FFFirebaseStruct {
         ),
         xValue: deserializeParam(
           data['xValue'],
-          ParamType.DateTime,
+          ParamType.String,
           false,
         ),
       );
@@ -87,7 +87,7 @@ class ChartDataStruct extends FFFirebaseStruct {
 
 ChartDataStruct createChartDataStruct({
   int? yValue,
-  DateTime? xValue,
+  String? xValue,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
