@@ -408,94 +408,98 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                   Row(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     children: [
-                                                                                      Builder(
-                                                                                        builder: (context) => Padding(
-                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                                                                          child: FFButtonWidget(
-                                                                                            onPressed: () async {
-                                                                                              await showDialog(
-                                                                                                context: context,
-                                                                                                builder: (dialogContext) {
-                                                                                                  return Dialog(
-                                                                                                    elevation: 0,
-                                                                                                    insetPadding: EdgeInsets.zero,
-                                                                                                    backgroundColor: Colors.transparent,
-                                                                                                    alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                                    child: GestureDetector(
-                                                                                                      onTap: () => FocusScope.of(dialogContext).unfocus(),
-                                                                                                      child: EditScoreWidget(
-                                                                                                        score: containerJobsRecord.scores,
-                                                                                                        jobRef: widget.job!,
-                                                                                                        index: scoresIndex,
+                                                                                      Expanded(
+                                                                                        child: Builder(
+                                                                                          builder: (context) => Padding(
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                            child: FFButtonWidget(
+                                                                                              onPressed: () async {
+                                                                                                await showDialog(
+                                                                                                  context: context,
+                                                                                                  builder: (dialogContext) {
+                                                                                                    return Dialog(
+                                                                                                      elevation: 0,
+                                                                                                      insetPadding: EdgeInsets.zero,
+                                                                                                      backgroundColor: Colors.transparent,
+                                                                                                      alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                                      child: GestureDetector(
+                                                                                                        onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                                                        child: EditScoreWidget(
+                                                                                                          score: containerJobsRecord.scores,
+                                                                                                          jobRef: widget.job!,
+                                                                                                          index: scoresIndex,
+                                                                                                        ),
                                                                                                       ),
+                                                                                                    );
+                                                                                                  },
+                                                                                                );
+                                                                                              },
+                                                                                              text: 'Edit',
+                                                                                              options: FFButtonOptions(
+                                                                                                width: 100.0,
+                                                                                                height: 40.0,
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                      fontFamily: 'Poppins',
+                                                                                                      color: Colors.white,
+                                                                                                      fontSize: 14.0,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      fontWeight: FontWeight.normal,
                                                                                                     ),
-                                                                                                  );
-                                                                                                },
-                                                                                              );
-                                                                                            },
-                                                                                            text: 'Edit',
-                                                                                            options: FFButtonOptions(
-                                                                                              width: 100.0,
-                                                                                              height: 40.0,
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                    fontFamily: 'Poppins',
-                                                                                                    color: Colors.white,
-                                                                                                    fontSize: 14.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.normal,
-                                                                                                  ),
-                                                                                              elevation: 0.0,
-                                                                                              borderSide: const BorderSide(
-                                                                                                color: Colors.transparent,
-                                                                                                width: 1.0,
+                                                                                                elevation: 0.0,
+                                                                                                borderSide: const BorderSide(
+                                                                                                  color: Colors.transparent,
+                                                                                                  width: 1.0,
+                                                                                                ),
+                                                                                                borderRadius: BorderRadius.circular(20.0),
                                                                                               ),
-                                                                                              borderRadius: BorderRadius.circular(20.0),
+                                                                                              showLoadingIndicator: false,
                                                                                             ),
-                                                                                            showLoadingIndicator: false,
                                                                                           ),
                                                                                         ),
                                                                                       ),
-                                                                                      FFButtonWidget(
-                                                                                        onPressed: () async {
-                                                                                          await widget.job!.update({
-                                                                                            ...mapToFirestore(
-                                                                                              {
-                                                                                                'scores': FieldValue.arrayRemove([
-                                                                                                  getScoreFirestoreData(
-                                                                                                    updateScoreStruct(
-                                                                                                      scoresItem,
-                                                                                                      clearUnsetFields: false,
-                                                                                                    ),
-                                                                                                    true,
-                                                                                                  )
-                                                                                                ]),
-                                                                                              },
-                                                                                            ),
-                                                                                          });
-                                                                                        },
-                                                                                        text: 'Delete',
-                                                                                        options: FFButtonOptions(
-                                                                                          width: 100.0,
-                                                                                          height: 40.0,
-                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                fontFamily: 'Poppins',
-                                                                                                color: Colors.white,
-                                                                                                fontSize: 14.0,
-                                                                                                letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.normal,
+                                                                                      Expanded(
+                                                                                        child: FFButtonWidget(
+                                                                                          onPressed: () async {
+                                                                                            await widget.job!.update({
+                                                                                              ...mapToFirestore(
+                                                                                                {
+                                                                                                  'scores': FieldValue.arrayRemove([
+                                                                                                    getScoreFirestoreData(
+                                                                                                      updateScoreStruct(
+                                                                                                        scoresItem,
+                                                                                                        clearUnsetFields: false,
+                                                                                                      ),
+                                                                                                      true,
+                                                                                                    )
+                                                                                                  ]),
+                                                                                                },
                                                                                               ),
-                                                                                          elevation: 0.0,
-                                                                                          borderSide: const BorderSide(
-                                                                                            color: Colors.transparent,
-                                                                                            width: 1.0,
+                                                                                            });
+                                                                                          },
+                                                                                          text: 'Delete',
+                                                                                          options: FFButtonOptions(
+                                                                                            width: 100.0,
+                                                                                            height: 40.0,
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                            iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                  fontFamily: 'Poppins',
+                                                                                                  color: Colors.white,
+                                                                                                  fontSize: 14.0,
+                                                                                                  letterSpacing: 0.0,
+                                                                                                  fontWeight: FontWeight.normal,
+                                                                                                ),
+                                                                                            elevation: 0.0,
+                                                                                            borderSide: const BorderSide(
+                                                                                              color: Colors.transparent,
+                                                                                              width: 1.0,
+                                                                                            ),
+                                                                                            borderRadius: BorderRadius.circular(20.0),
                                                                                           ),
-                                                                                          borderRadius: BorderRadius.circular(20.0),
                                                                                         ),
                                                                                       ),
                                                                                     ],
@@ -1295,12 +1299,46 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                         return;
                                                       }
 
-                                                      await widget.job!.update(
-                                                          createJobsRecordData(
-                                                        completionTime:
-                                                            _model.datePicked2,
-                                                        completionStatus: true,
-                                                      ));
+                                                      if (_model.datePicked2 ==
+                                                          null) {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .clearSnackBars();
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: const Text(
+                                                              'Please set the completion time!',
+                                                              style: TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                            ),
+                                                            duration: const Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                          ),
+                                                        );
+                                                        return;
+                                                      } else {
+                                                        await widget.job!.update(
+                                                            createJobsRecordData(
+                                                          completionTime: _model
+                                                              .datePicked2,
+                                                          completionStatus:
+                                                              _model
+                                                                  .switchValue,
+                                                          updatedAt:
+                                                              getCurrentTimestamp,
+                                                        ));
+                                                        context.safePop();
+                                                        return;
+                                                      }
                                                     },
                                                     text: 'Save',
                                                     options: FFButtonOptions(

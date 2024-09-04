@@ -8,21 +8,23 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class ChartDataStruct extends FFFirebaseStruct {
   ChartDataStruct({
-    int? yValue,
+    int? y1Value,
     String? xValue,
+    int? y2Value,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
-  })  : _yValue = yValue,
+  })  : _y1Value = y1Value,
         _xValue = xValue,
+        _y2Value = y2Value,
         super(firestoreUtilData);
 
-  // "yValue" field.
-  int? _yValue;
-  int get yValue => _yValue ?? 0;
-  set yValue(int? val) => _yValue = val;
+  // "y1Value" field.
+  int? _y1Value;
+  int get y1Value => _y1Value ?? 0;
+  set y1Value(int? val) => _y1Value = val;
 
-  void incrementYValue(int amount) => yValue = yValue + amount;
+  void incrementY1Value(int amount) => y1Value = y1Value + amount;
 
-  bool hasYValue() => _yValue != null;
+  bool hasY1Value() => _y1Value != null;
 
   // "xValue" field.
   String? _xValue;
@@ -31,9 +33,19 @@ class ChartDataStruct extends FFFirebaseStruct {
 
   bool hasXValue() => _xValue != null;
 
+  // "y2Value" field.
+  int? _y2Value;
+  int get y2Value => _y2Value ?? 0;
+  set y2Value(int? val) => _y2Value = val;
+
+  void incrementY2Value(int amount) => y2Value = y2Value + amount;
+
+  bool hasY2Value() => _y2Value != null;
+
   static ChartDataStruct fromMap(Map<String, dynamic> data) => ChartDataStruct(
-        yValue: castToType<int>(data['yValue']),
+        y1Value: castToType<int>(data['y1Value']),
         xValue: data['xValue'] as String?,
+        y2Value: castToType<int>(data['y2Value']),
       );
 
   static ChartDataStruct? maybeFromMap(dynamic data) => data is Map
@@ -41,32 +53,42 @@ class ChartDataStruct extends FFFirebaseStruct {
       : null;
 
   Map<String, dynamic> toMap() => {
-        'yValue': _yValue,
+        'y1Value': _y1Value,
         'xValue': _xValue,
+        'y2Value': _y2Value,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'yValue': serializeParam(
-          _yValue,
+        'y1Value': serializeParam(
+          _y1Value,
           ParamType.int,
         ),
         'xValue': serializeParam(
           _xValue,
           ParamType.String,
         ),
+        'y2Value': serializeParam(
+          _y2Value,
+          ParamType.int,
+        ),
       }.withoutNulls;
 
   static ChartDataStruct fromSerializableMap(Map<String, dynamic> data) =>
       ChartDataStruct(
-        yValue: deserializeParam(
-          data['yValue'],
+        y1Value: deserializeParam(
+          data['y1Value'],
           ParamType.int,
           false,
         ),
         xValue: deserializeParam(
           data['xValue'],
           ParamType.String,
+          false,
+        ),
+        y2Value: deserializeParam(
+          data['y2Value'],
+          ParamType.int,
           false,
         ),
       );
@@ -77,25 +99,28 @@ class ChartDataStruct extends FFFirebaseStruct {
   @override
   bool operator ==(Object other) {
     return other is ChartDataStruct &&
-        yValue == other.yValue &&
-        xValue == other.xValue;
+        y1Value == other.y1Value &&
+        xValue == other.xValue &&
+        y2Value == other.y2Value;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([yValue, xValue]);
+  int get hashCode => const ListEquality().hash([y1Value, xValue, y2Value]);
 }
 
 ChartDataStruct createChartDataStruct({
-  int? yValue,
+  int? y1Value,
   String? xValue,
+  int? y2Value,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
   bool delete = false,
 }) =>
     ChartDataStruct(
-      yValue: yValue,
+      y1Value: y1Value,
       xValue: xValue,
+      y2Value: y2Value,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

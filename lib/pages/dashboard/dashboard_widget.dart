@@ -151,7 +151,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Poppins',
-                                                            fontSize: 14.0,
+                                                            fontSize: 18.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -171,7 +171,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 18.0,
+                                                          fontSize: 20.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -237,7 +237,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                             .override(
                                                               fontFamily:
                                                                   'Poppins',
-                                                              fontSize: 14.0,
+                                                              fontSize: 18.0,
                                                               letterSpacing:
                                                                   0.0,
                                                               fontWeight:
@@ -261,7 +261,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Poppins',
-                                                            fontSize: 18.0,
+                                                            fontSize: 20.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
@@ -328,7 +328,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                             .override(
                                                               fontFamily:
                                                                   'Poppins',
-                                                              fontSize: 14.0,
+                                                              fontSize: 18.0,
                                                               letterSpacing:
                                                                   0.0,
                                                               fontWeight:
@@ -360,7 +360,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Poppins',
-                                                            fontSize: 18.0,
+                                                            fontSize: 20.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
@@ -496,10 +496,15 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               chartData:
                                                   functions.productionChartData(
                                                       containerJobsRecordList
+                                                          .sortedList(
+                                                              keyOf: (e) => e
+                                                                  .completionTime!,
+                                                              desc: false)
                                                           .toList())!,
                                               completedLineColor:
                                                   const Color(0xFF4F81BC),
-                                              markerColor: const Color(0xFF4F81BC),
+                                              incompletedLineColor:
+                                                  const Color(0xFFC0504E),
                                             ),
                                           ),
                                         ),

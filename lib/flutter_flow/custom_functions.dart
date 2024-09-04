@@ -75,43 +75,41 @@ List<ChartDataStruct>? productionChartData(List<JobsRecord>? jobs) {
     return null;
   }
 
-  // Initialize an empty map to store the aggregated data
-  final Map<String, int> aggregatedData = {};
+  final Map<String, Map<String, int>> jobsMap = {};
+  final DateFormat formatter = DateFormat('yMMM');
+  final DateTime currentDate = DateTime.now();
+  final DateTime startDate =
+      DateTime(currentDate.year - 1, currentDate.month, 1);
 
-  // Get the current date
-  final DateTime now = DateTime.now();
-
-  // Calculate the start date (same month last year)
-  final DateTime startDate = DateTime(now.year - 1, now.month);
-  // Create a date formatter for yMMM format (e.g., "Sep 2024")
-  final DateFormat formatter = DateFormat.yMMM();
-  // Filter jobs and aggregate data by month
-  for (final job in jobs) {
-    final DateTime jobDate =
-        DateFormat(job.createdAt!); // Assuming JobsRecord has a date property
-
-    // Check if the job date is within the required range and if the job is completed
-    if (jobDate.isAfter(startDate) &&
-        jobDate.isBefore(now) &&
-        job.completionStatus == true) {
-      final String monthKey = formatter.format(jobDate);
-
-      // Aggregate completed jobs by month
-      if (aggregatedData.containsKey(monthKey)) {
-        aggregatedData[monthKey] = aggregatedData[monthKey]! + 1;
-      } else {
-        aggregatedData[monthKey] = 1;
+  for (var job in jobs) {
+    if (job.completionStatus == true && job.completionTime != null) {
+      if (job.completionTime!.isAfter(startDate)) {
+        final String formattedDate = formatter.format(job.completionTime!);
+        if (!jobsMap.containsKey(formattedDate)) {
+          jobsMap[formattedDate] = {'completed': 0, 'incomplete': 0};
+        }
+        jobsMap[formattedDate]!['completed'] =
+            jobsMap[formattedDate]!['completed']! + 1;
       }
+    } else {
+      final String formattedDate = formatter.format(job.createdAt!);
+      if (!jobsMap.containsKey(formattedDate)) {
+        jobsMap[formattedDate] = {'completed': 0, 'incomplete': 0};
+      }
+      jobsMap[formattedDate]!['incomplete'] =
+          jobsMap[formattedDate]!['incomplete']! + 1;
     }
   }
-  // aggregatedData.entries.map((entry) => print(entry.toString()));
 
-  // Convert the map to a list of ChartDataStruct
-  List<ChartDataStruct> chartDataList = aggregatedData.entries
-      .map((entry) => ChartDataStruct(xValue: entry.key, yValue: entry.value))
-      .toList();
-  for (var item in chartDataList) {
-    debugPrint(item.toString());
-  }
-  return chartDataList;
+  List<ChartDataStruct> chartData = [];
+
+  jobsMap.forEach((key, value) {
+    chartData.add(ChartDataStruct(
+      xValue: key,
+      y1Value: value['completed']!,
+      y2Value: value['incomplete']!,
+    ));
+  });
+
+  return chartData;
 }
