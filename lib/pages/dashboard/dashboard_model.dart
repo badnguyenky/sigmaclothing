@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for NavMenuLeft component.
   late NavMenuLeftModel navMenuLeftModel;
   // Model for NavHeader component.

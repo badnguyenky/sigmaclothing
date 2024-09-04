@@ -26,7 +26,7 @@ class _PopupUserWidgetState extends State<PopupUserWidget> {
     super.initState();
     _model = createModel(context, () => PopupUserModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -39,23 +39,23 @@ class _PopupUserWidgetState extends State<PopupUserWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200.0,
+      width: 200,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         boxShadow: const [
           BoxShadow(
-            blurRadius: 4.0,
+            blurRadius: 4,
             color: Color(0x33000000),
             offset: Offset(
-              0.0,
-              2.0,
+              0,
+              2,
             ),
           )
         ],
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,10 +64,10 @@ class _PopupUserWidgetState extends State<PopupUserWidget> {
               opaque: false,
               cursor: SystemMouseCursors.click ?? MouseCursor.defer,
               onEnter: ((event) async {
-                setState(() => _model.mouseRegionHovered1 = true);
+                safeSetState(() => _model.mouseRegionHovered1 = true);
               }),
               onExit: ((event) async {
-                setState(() => _model.mouseRegionHovered1 = false);
+                safeSetState(() => _model.mouseRegionHovered1 = false);
               }),
               child: Container(
                 width: double.infinity,
@@ -77,23 +77,21 @@ class _PopupUserWidgetState extends State<PopupUserWidget> {
                       : const Color(0x00000000),
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                         child: Icon(
                           Icons.person,
                           color: FlutterFlowTheme.of(context).primaryText,
-                          size: 20.0,
+                          size: 20,
                         ),
                       ),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                           child: Text(
                             'My Profile',
                             style: FlutterFlowTheme.of(context)
@@ -114,10 +112,10 @@ class _PopupUserWidgetState extends State<PopupUserWidget> {
               opaque: false,
               cursor: SystemMouseCursors.click ?? MouseCursor.defer,
               onEnter: ((event) async {
-                setState(() => _model.mouseRegionHovered2 = true);
+                safeSetState(() => _model.mouseRegionHovered2 = true);
               }),
               onExit: ((event) async {
-                setState(() => _model.mouseRegionHovered2 = false);
+                safeSetState(() => _model.mouseRegionHovered2 = false);
               }),
               child: Container(
                 width: double.infinity,
@@ -127,23 +125,21 @@ class _PopupUserWidgetState extends State<PopupUserWidget> {
                       : const Color(0x00000000),
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                         child: Icon(
                           Icons.change_circle_rounded,
                           color: FlutterFlowTheme.of(context).primaryText,
-                          size: 20.0,
+                          size: 20,
                         ),
                       ),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                           child: Text(
                             'Change Password',
                             style: FlutterFlowTheme.of(context)
@@ -164,10 +160,10 @@ class _PopupUserWidgetState extends State<PopupUserWidget> {
               opaque: false,
               cursor: SystemMouseCursors.click ?? MouseCursor.defer,
               onEnter: ((event) async {
-                setState(() => _model.mouseRegionHovered3 = true);
+                safeSetState(() => _model.mouseRegionHovered3 = true);
               }),
               onExit: ((event) async {
-                setState(() => _model.mouseRegionHovered3 = false);
+                safeSetState(() => _model.mouseRegionHovered3 = false);
               }),
               child: Container(
                 width: double.infinity,
@@ -177,23 +173,21 @@ class _PopupUserWidgetState extends State<PopupUserWidget> {
                       : const Color(0x00000000),
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                         child: Icon(
                           Icons.star,
                           color: FlutterFlowTheme.of(context).primaryText,
-                          size: 20.0,
+                          size: 20,
                         ),
                       ),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                           child: Text(
                             'Activity Log',
                             style: FlutterFlowTheme.of(context)
@@ -214,10 +208,10 @@ class _PopupUserWidgetState extends State<PopupUserWidget> {
               opaque: false,
               cursor: SystemMouseCursors.click ?? MouseCursor.defer,
               onEnter: ((event) async {
-                setState(() => _model.mouseRegionHovered4 = true);
+                safeSetState(() => _model.mouseRegionHovered4 = true);
               }),
               onExit: ((event) async {
-                setState(() => _model.mouseRegionHovered4 = false);
+                safeSetState(() => _model.mouseRegionHovered4 = false);
               }),
               child: InkWell(
                 splashColor: Colors.transparent,
@@ -239,23 +233,22 @@ class _PopupUserWidgetState extends State<PopupUserWidget> {
                         : const Color(0x00000000),
                   ),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                           child: Icon(
                             Icons.login,
                             color: FlutterFlowTheme.of(context).primaryText,
-                            size: 20.0,
+                            size: 20,
                           ),
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Text(
                               'Sign Out',
                               style: FlutterFlowTheme.of(context)

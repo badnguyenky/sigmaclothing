@@ -28,7 +28,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
     super.initState();
     _model = createModel(context, () => DashboardModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -54,7 +54,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
             children: [
               wrapWithModel(
                 model: _model.navMenuLeftModel,
-                updateCallback: () => setState(() {}),
+                updateCallback: () => safeSetState(() {}),
                 child: const NavMenuLeftWidget(
                   index: 0,
                 ),
@@ -67,11 +67,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
+                          width: 50,
+                          height: 50,
                           child: SpinKitCircle(
                             color: FlutterFlowTheme.of(context).primary,
-                            size: 50.0,
+                            size: 50,
                           ),
                         ),
                       );
@@ -79,45 +79,44 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                     List<JobsRecord> containerJobsRecordList = snapshot.data!;
 
                     return Container(
-                      width: 100.0,
+                      width: 100,
                       height: double.infinity,
                       decoration: const BoxDecoration(
                         color: Color(0xFFECECEC),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            15.0, 10.0, 15.0, 10.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(15, 10, 15, 10),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               wrapWithModel(
                                 model: _model.navHeaderModel,
-                                updateCallback: () => setState(() {}),
+                                updateCallback: () => safeSetState(() {}),
                                 child: const NavHeaderWidget(
                                   title: 'Dashboard',
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 15.0, 0.0, 0.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Expanded(
                                       child: Container(
-                                        width: 300.0,
+                                        width: 300,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10.0),
+                                              BorderRadius.circular(10),
                                         ),
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              const AlignmentDirectional(-1, 0),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: const EdgeInsets.all(10),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -125,24 +124,23 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               children: [
                                                 ClipRRect(
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                      BorderRadius.circular(8),
                                                   child: Image.asset(
                                                     'assets/images/list1.png',
-                                                    width: 48.0,
-                                                    height: 48.0,
+                                                    width: 48,
+                                                    height: 48,
                                                     fit: BoxFit.cover,
                                                   ),
                                                 ),
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          -1.0, 0.0),
+                                                          -1, 0),
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(5.0, 5.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                5, 5, 0, 0),
                                                     child: Text(
                                                       'DATE',
                                                       style: FlutterFlowTheme
@@ -151,7 +149,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Poppins',
-                                                            fontSize: 18.0,
+                                                            fontSize: 18,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -161,8 +159,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                 ),
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 0.0, 0.0, 0.0),
+                                                      .fromSTEB(5, 0, 0, 0),
                                                   child: Text(
                                                     dateTimeFormat("MMMEd",
                                                         getCurrentTimestamp),
@@ -171,7 +168,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 20.0,
+                                                          fontSize: 20,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -187,20 +184,20 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                     Expanded(
                                       child: Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            30.0, 0.0, 0.0, 0.0),
+                                            30, 0, 0, 0),
                                         child: Container(
-                                          width: 300.0,
+                                          width: 300,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1, 0),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(10.0),
+                                              padding: const EdgeInsets.all(10),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -209,49 +206,47 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                   ClipRRect(
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     child: Image.asset(
                                                       'assets/images/list2.png',
-                                                      width: 48.0,
-                                                      height: 48.0,
+                                                      width: 48,
+                                                      height: 48,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
                                                   Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            -1.0, 0.0),
+                                                            -1, 0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  5.0,
-                                                                  5.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  5, 5, 0, 0),
                                                       child: Text(
                                                         'TIME',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 18.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 18,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(5.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                5, 0, 0, 0),
                                                     child: Text(
                                                       dateTimeFormat("jm",
                                                           getCurrentTimestamp),
@@ -261,7 +256,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Poppins',
-                                                            fontSize: 20.0,
+                                                            fontSize: 20,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
@@ -278,20 +273,20 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                     Expanded(
                                       child: Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            30.0, 0.0, 0.0, 0.0),
+                                            30, 0, 0, 0),
                                         child: Container(
-                                          width: 300.0,
+                                          width: 300,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1, 0),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(10.0),
+                                              padding: const EdgeInsets.all(10),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -300,49 +295,47 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                   ClipRRect(
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     child: Image.asset(
                                                       'assets/images/list3.png',
-                                                      width: 48.0,
-                                                      height: 48.0,
+                                                      width: 48,
+                                                      height: 48,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
                                                   Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            -1.0, 0.0),
+                                                            -1, 0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  5.0,
-                                                                  5.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  5, 5, 0, 0),
                                                       child: Text(
                                                         'SKUS COMPLETED',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 18.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 18,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(5.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                5, 0, 0, 0),
                                                     child: Text(
                                                       valueOrDefault<String>(
                                                         containerJobsRecordList
@@ -360,7 +353,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Poppins',
-                                                            fontSize: 20.0,
+                                                            fontSize: 20,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
@@ -378,19 +371,19 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 15.0, 0.0, 0.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                                 child: Container(
                                   width: double.infinity,
-                                  height: 400.0,
+                                  height: 400,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 20.0, 10.0, 20.0),
+                                        10, 20, 10, 20),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -409,7 +402,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 20.0,
+                                                        fontSize: 20,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -425,8 +418,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       MainAxisSize.max,
                                                   children: [
                                                     Container(
-                                                      width: 20.0,
-                                                      height: 20.0,
+                                                      width: 20,
+                                                      height: 20,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             const Color(0xFFC0504E),
@@ -448,16 +441,15 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                 FontWeight.w600,
                                                           ),
                                                     ),
-                                                  ].divide(
-                                                      const SizedBox(width: 5.0)),
+                                                  ].divide(const SizedBox(width: 5)),
                                                 ),
                                                 Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Container(
-                                                      width: 20.0,
-                                                      height: 20.0,
+                                                      width: 20,
+                                                      height: 20,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             const Color(0xFF4F81BC),
@@ -479,10 +471,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                 FontWeight.w600,
                                                           ),
                                                     ),
-                                                  ].divide(
-                                                      const SizedBox(width: 5.0)),
+                                                  ].divide(const SizedBox(width: 5)),
                                                 ),
-                                              ].divide(const SizedBox(width: 8.0)),
+                                              ].divide(const SizedBox(width: 8)),
                                             ),
                                           ],
                                         ),
@@ -496,10 +487,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               chartData:
                                                   functions.productionChartData(
                                                       containerJobsRecordList
-                                                          .sortedList(
-                                                              keyOf: (e) => e
-                                                                  .completionTime!,
-                                                              desc: false)
                                                           .toList())!,
                                               completedLineColor:
                                                   const Color(0xFF4F81BC),
@@ -508,25 +495,25 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                             ),
                                           ),
                                         ),
-                                      ].divide(const SizedBox(height: 10.0)),
+                                      ].divide(const SizedBox(height: 10)),
                                     ),
                                   ),
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 15.0, 0.0, 0.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                                 child: Container(
                                   width: double.infinity,
-                                  height: 400.0,
+                                  height: 400,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 20.0, 10.0, 20.0),
+                                        10, 20, 10, 20),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -545,7 +532,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 20.0,
+                                                        fontSize: 20,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -561,8 +548,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       MainAxisSize.max,
                                                   children: [
                                                     Container(
-                                                      width: 20.0,
-                                                      height: 20.0,
+                                                      width: 20,
+                                                      height: 20,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             const Color(0xFF4BB2C5),
@@ -584,16 +571,15 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                 FontWeight.w600,
                                                           ),
                                                     ),
-                                                  ].divide(
-                                                      const SizedBox(width: 5.0)),
+                                                  ].divide(const SizedBox(width: 5)),
                                                 ),
                                                 Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Container(
-                                                      width: 20.0,
-                                                      height: 20.0,
+                                                      width: 20,
+                                                      height: 20,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             const Color(0xFFEAA22D),
@@ -615,10 +601,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                 FontWeight.w600,
                                                           ),
                                                     ),
-                                                  ].divide(
-                                                      const SizedBox(width: 5.0)),
+                                                  ].divide(const SizedBox(width: 5)),
                                                 ),
-                                              ].divide(const SizedBox(width: 8.0)),
+                                              ].divide(const SizedBox(width: 8)),
                                             ),
                                           ],
                                         ),
@@ -636,7 +621,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                             ),
                                           ),
                                         ),
-                                      ].divide(const SizedBox(height: 10.0)),
+                                      ].divide(const SizedBox(height: 10)),
                                     ),
                                   ),
                                 ),

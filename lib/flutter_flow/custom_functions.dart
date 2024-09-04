@@ -74,13 +74,21 @@ List<ChartDataStruct>? productionChartData(List<JobsRecord>? jobs) {
   if (jobs == null || jobs.isEmpty) {
     return null;
   }
-
   final Map<String, Map<String, int>> jobsMap = {};
   final DateFormat formatter = DateFormat('yMMM');
   final DateTime currentDate = DateTime.now();
   final DateTime startDate =
       DateTime(currentDate.year - 1, currentDate.month, 1);
-
+  // Sort the jobs before processing
+  jobs.sort((a, b) {
+    DateTime dateA = a.completionStatus == true && a.completionTime != null
+        ? a.completionTime!
+        : a.createdAt!;
+    DateTime dateB = b.completionStatus == true && b.completionTime != null
+        ? b.completionTime!
+        : b.createdAt!;
+    return dateA.compareTo(dateB); // Sort by ascending date
+  });
   for (var job in jobs) {
     if (job.completionStatus == true && job.completionTime != null) {
       if (job.completionTime!.isAfter(startDate)) {

@@ -12,7 +12,6 @@ class EditJobModel extends FlutterFlowModel<EditJobWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // Model for NavMenuLeft component.
   late NavMenuLeftModel navMenuLeftModel;

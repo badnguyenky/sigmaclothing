@@ -34,7 +34,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
     super.initState();
     _model = createModel(context, () => ScoreViewModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -58,14 +58,14 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
             children: [
               wrapWithModel(
                 model: _model.navMenuLeftModel,
-                updateCallback: () => setState(() {}),
+                updateCallback: () => safeSetState(() {}),
                 child: const NavMenuLeftWidget(
                   index: 1,
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10),
                   child: Container(
                     width: double.infinity,
                     height: double.infinity,
@@ -81,11 +81,11 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                             if (!snapshot.hasData) {
                               return Center(
                                 child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
+                                  width: 50,
+                                  height: 50,
                                   child: SpinKitCircle(
                                     color: FlutterFlowTheme.of(context).primary,
-                                    size: 50.0,
+                                    size: 50,
                                   ),
                                 ),
                               );
@@ -98,10 +98,10 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(30.0),
+                                borderRadius: BorderRadius.circular(30),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(15.0),
+                                padding: const EdgeInsets.all(15),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -112,23 +112,20 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                       children: [
                                         Expanded(
                                           child: Container(
-                                            width: 100.0,
-                                            height: 40.0,
+                                            width: 100,
+                                            height: 40,
                                             decoration: BoxDecoration(
                                               color: containerCellsRecord.color,
                                               borderRadius: const BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(0.0),
-                                                bottomRight:
-                                                    Radius.circular(0.0),
-                                                topLeft: Radius.circular(10.0),
-                                                topRight: Radius.circular(10.0),
+                                                bottomLeft: Radius.circular(0),
+                                                bottomRight: Radius.circular(0),
+                                                topLeft: Radius.circular(10),
+                                                topRight: Radius.circular(10),
                                               ),
                                             ),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(10, 0, 0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -143,7 +140,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
-                                                          fontSize: 18.0,
+                                                          fontSize: 18,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -157,7 +154,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
-                                                          fontSize: 18.0,
+                                                          fontSize: 18,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -180,7 +177,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                                   Colors
                                                                       .transparent,
                                                               alignment: const AlignmentDirectional(
-                                                                      0.0, 0.0)
+                                                                      0, 0)
                                                                   .resolve(
                                                                       Directionality.of(
                                                                           context)),
@@ -199,21 +196,15 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                       },
                                                       text: 'LEADERBOARD',
                                                       options: FFButtonOptions(
-                                                        height: 40.0,
+                                                        height: 40,
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    24.0,
-                                                                    0.0,
-                                                                    24.0,
-                                                                    0.0),
+                                                                .fromSTEB(24, 0,
+                                                                    24, 0),
                                                         iconPadding:
                                                             const EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                    0, 0, 0, 0),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -227,23 +218,22 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                                       'Poppins',
                                                                   color: Colors
                                                                       .white,
-                                                                  fontSize:
-                                                                      18.0,
+                                                                  fontSize: 18,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                        elevation: 0.0,
+                                                        elevation: 0,
                                                         borderSide: const BorderSide(
                                                           color: Colors
                                                               .transparent,
-                                                          width: 1.0,
+                                                          width: 1,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(0.0),
+                                                                .circular(0),
                                                       ),
                                                       showLoadingIndicator:
                                                           false,
@@ -273,7 +263,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                 child: Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: Text(
                                                     'TIME',
                                                     style: FlutterFlowTheme.of(
@@ -284,7 +274,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 30.0,
+                                                          fontSize: 30,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -299,7 +289,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                 child: Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: Text(
                                                     'SCORE',
                                                     style: FlutterFlowTheme.of(
@@ -310,7 +300,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 30.0,
+                                                          fontSize: 30,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -325,7 +315,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                 child: Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: Text(
                                                     'SCORE',
                                                     style: FlutterFlowTheme.of(
@@ -336,7 +326,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 30.0,
+                                                          fontSize: 30,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -366,8 +356,8 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                               DataRow(
                                             cells: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, 0),
                                                 child: Text(
                                                   dateTimeFormat(
                                                       "HH:mm", dataItem.time!),
@@ -376,7 +366,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 30.0,
+                                                        fontSize: 30,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -384,8 +374,8 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, 0),
                                                 child: Text(
                                                   dataItem.targetReached
                                                       .toString(),
@@ -394,7 +384,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 30.0,
+                                                        fontSize: 30,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -402,8 +392,8 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, 0),
                                                 child: Text(
                                                   functions
                                                       .scoreViewCalculation(
@@ -434,7 +424,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                                 0xFFFF0000);
                                                           }
                                                         }(),
-                                                        fontSize: 30.0,
+                                                        fontSize: 30,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -442,16 +432,16 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, 0),
                                                 child: Builder(
                                                   builder: (context) {
                                                     if (dataItem.performance ==
                                                         'Very Bad') {
                                                       return Lottie.asset(
                                                         'assets/lottie_animations/verybad.json',
-                                                        width: 50.0,
-                                                        height: 50.0,
+                                                        width: 50,
+                                                        height: 50,
                                                         fit: BoxFit.cover,
                                                         animate: true,
                                                       );
@@ -460,8 +450,8 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                         'Bad') {
                                                       return Lottie.asset(
                                                         'assets/lottie_animations/bad.json',
-                                                        width: 50.0,
-                                                        height: 50.0,
+                                                        width: 50,
+                                                        height: 50,
                                                         fit: BoxFit.cover,
                                                         animate: true,
                                                       );
@@ -470,8 +460,8 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                         'Average') {
                                                       return Lottie.asset(
                                                         'assets/lottie_animations/onscore.json',
-                                                        width: 50.0,
-                                                        height: 50.0,
+                                                        width: 50,
+                                                        height: 50,
                                                         fit: BoxFit.cover,
                                                         animate: true,
                                                       );
@@ -480,16 +470,16 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                         'On Score Or Slightly Under') {
                                                       return Lottie.asset(
                                                         'assets/lottie_animations/good.json',
-                                                        width: 50.0,
-                                                        height: 50.0,
+                                                        width: 50,
+                                                        height: 50,
                                                         fit: BoxFit.cover,
                                                         animate: true,
                                                       );
                                                     } else {
                                                       return Lottie.asset(
                                                         'assets/lottie_animations/excellent.json',
-                                                        width: 50.0,
-                                                        height: 50.0,
+                                                        width: 50,
+                                                        height: 50,
                                                         fit: BoxFit.cover,
                                                         animate: true,
                                                       );
@@ -507,18 +497,18 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                       widget
                                                           .job!.scores.length)
                                               .toDouble(),
-                                          headingRowHeight: 56.0,
-                                          dataRowHeight: 60.0,
-                                          columnSpacing: 20.0,
+                                          headingRowHeight: 56,
+                                          dataRowHeight: 60,
+                                          columnSpacing: 20,
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                           addHorizontalDivider: true,
                                           addTopAndBottomDivider: false,
                                           hideDefaultHorizontalDivider: true,
                                           horizontalDividerColor:
                                               FlutterFlowTheme.of(context)
                                                   .secondaryBackground,
-                                          horizontalDividerThickness: 1.0,
+                                          horizontalDividerThickness: 1,
                                           addVerticalDivider: false,
                                         );
                                       },
@@ -549,7 +539,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
-                                                            fontSize: 24.0,
+                                                            fontSize: 24,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
@@ -568,7 +558,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                             Color(0xFFFF0000),
                                                         fontWeight:
                                                             FontWeight.bold,
-                                                        fontSize: 24.0,
+                                                        fontSize: 24,
                                                       ),
                                                     )
                                                   ],
@@ -577,7 +567,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 24.0,
+                                                        fontSize: 24,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -601,7 +591,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
-                                                            fontSize: 24.0,
+                                                            fontSize: 24,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
@@ -633,7 +623,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                             Color(0xFFFF0000),
                                                         fontWeight:
                                                             FontWeight.bold,
-                                                        fontSize: 24.0,
+                                                        fontSize: 24,
                                                       ),
                                                     )
                                                   ],
@@ -642,7 +632,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 24.0,
+                                                        fontSize: 24,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -666,7 +656,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
-                                                            fontSize: 24.0,
+                                                            fontSize: 24,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
@@ -687,7 +677,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                             Color(0xFF008000),
                                                         fontWeight:
                                                             FontWeight.bold,
-                                                        fontSize: 24.0,
+                                                        fontSize: 24,
                                                       ),
                                                     )
                                                   ],
@@ -696,7 +686,7 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 24.0,
+                                                        fontSize: 24,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -717,14 +707,14 @@ class _ScoreViewWidgetState extends State<ScoreViewWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 24.0,
+                                                fontSize: 24,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                         ),
                                       ],
                                     ),
-                                  ].divide(const SizedBox(height: 16.0)),
+                                  ].divide(const SizedBox(height: 16)),
                                 ),
                               ),
                             );

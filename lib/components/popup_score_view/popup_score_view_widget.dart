@@ -55,7 +55,7 @@ class _PopupScoreViewWidgetState extends State<PopupScoreViewWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -74,11 +74,11 @@ class _PopupScoreViewWidgetState extends State<PopupScoreViewWidget>
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 50.0,
-              height: 50.0,
+              width: 50,
+              height: 50,
               child: SpinKitCircle(
                 color: FlutterFlowTheme.of(context).primary,
-                size: 50.0,
+                size: 50,
               ),
             ),
           );
@@ -88,28 +88,28 @@ class _PopupScoreViewWidgetState extends State<PopupScoreViewWidget>
         return Container(
           width: MediaQuery.sizeOf(context).width * 0.5,
           constraints: const BoxConstraints(
-            maxWidth: 530.0,
+            maxWidth: 530,
           ),
           decoration: BoxDecoration(
             color: const Color(0xFF384584),
             boxShadow: const [
               BoxShadow(
-                blurRadius: 3.0,
+                blurRadius: 3,
                 color: Color(0x33000000),
                 offset: Offset(
-                  0.0,
-                  1.0,
+                  0,
+                  1,
                 ),
               )
             ],
-            borderRadius: BorderRadius.circular(24.0),
+            borderRadius: BorderRadius.circular(24),
             border: Border.all(
               color: FlutterFlowTheme.of(context).primaryBackground,
-              width: 1.0,
+              width: 1,
             ),
           ),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -143,11 +143,11 @@ class _PopupScoreViewWidgetState extends State<PopupScoreViewWidget>
                             if (!snapshot.hasData) {
                               return Center(
                                 child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
+                                  width: 50,
+                                  height: 50,
                                   child: SpinKitCircle(
                                     color: FlutterFlowTheme.of(context).primary,
-                                    size: 50.0,
+                                    size: 50,
                                   ),
                                 ),
                               );
@@ -157,7 +157,7 @@ class _PopupScoreViewWidgetState extends State<PopupScoreViewWidget>
 
                             return Container(
                               width: double.infinity,
-                              height: 50.0,
+                              height: 50,
                               decoration: const BoxDecoration(),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -165,17 +165,16 @@ class _PopupScoreViewWidgetState extends State<PopupScoreViewWidget>
                                 children: [
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        50.0, 0.0, 0.0, 0.0),
+                                        50, 0, 0, 0),
                                     child: Card(
                                       clipBehavior: Clip.antiAliasWithSaveLayer,
                                       color: const Color(0xFF001942),
-                                      elevation: 3.0,
+                                      elevation: 3,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
+                                        borderRadius: BorderRadius.circular(20),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
+                                        padding: const EdgeInsets.all(10),
                                         child: Text(
                                           (leaderboardIndex + 1).toString(),
                                           style: FlutterFlowTheme.of(context)
@@ -185,7 +184,7 @@ class _PopupScoreViewWidgetState extends State<PopupScoreViewWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
-                                                fontSize: 25.0,
+                                                fontSize: 25,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
                                                 lineHeight: 0.8,
@@ -202,7 +201,7 @@ class _PopupScoreViewWidgetState extends State<PopupScoreViewWidget>
                                           fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          fontSize: 18.0,
+                                          fontSize: 18,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -215,12 +214,12 @@ class _PopupScoreViewWidgetState extends State<PopupScoreViewWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: const Color(0xFF5CB85C),
-                                            fontSize: 18.0,
+                                            fontSize: 18,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
                                     ),
-                                ].divide(const SizedBox(width: 20.0)),
+                                ].divide(const SizedBox(width: 20)),
                               ),
                             );
                           },
@@ -229,7 +228,7 @@ class _PopupScoreViewWidgetState extends State<PopupScoreViewWidget>
                     );
                   },
                 ),
-              ].divide(const SizedBox(height: 12.0)),
+              ].divide(const SizedBox(height: 12)),
             ),
           ),
         ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!);

@@ -33,7 +33,7 @@ class _CellWidgetState extends State<CellWidget> {
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -57,27 +57,26 @@ class _CellWidgetState extends State<CellWidget> {
             children: [
               wrapWithModel(
                 model: _model.navMenuLeftModel,
-                updateCallback: () => setState(() {}),
+                updateCallback: () => safeSetState(() {}),
                 child: const NavMenuLeftWidget(
                   index: 2,
                 ),
               ),
               Expanded(
                 child: Container(
-                  width: 100.0,
+                  width: 100,
                   height: double.infinity,
                   decoration: const BoxDecoration(
                     color: Color(0xFFECECEC),
                   ),
                   child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(15, 10, 0, 0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         wrapWithModel(
                           model: _model.navHeaderModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavHeaderWidget(
                             title: 'Cell',
                           ),
@@ -93,12 +92,12 @@ class _CellWidgetState extends State<CellWidget> {
                               if (!snapshot.hasData) {
                                 return Center(
                                   child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
+                                    width: 50,
+                                    height: 50,
                                     child: SpinKitCircle(
                                       color:
                                           FlutterFlowTheme.of(context).primary,
-                                      size: 50.0,
+                                      size: 50,
                                     ),
                                   ),
                                 );
@@ -108,14 +107,14 @@ class _CellWidgetState extends State<CellWidget> {
 
                               return Container(
                                 width: double.infinity,
-                                height: 100.0,
+                                height: 100,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(30.0),
+                                  borderRadius: BorderRadius.circular(30),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(16.0),
+                                  padding: const EdgeInsets.all(16),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -138,26 +137,24 @@ class _CellWidgetState extends State<CellWidget> {
                                                         ),
                                               ),
                                               Container(
-                                                width: 250.0,
-                                                height: 40.0,
+                                                width: 250,
+                                                height: 40,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          30.0),
+                                                      BorderRadius.circular(30),
                                                   border: Border.all(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    width: 1.0,
+                                                    width: 1,
                                                   ),
                                                 ),
                                                 child: Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          16.0, 0.0, 16.0, 0.0),
+                                                      .fromSTEB(16, 0, 16, 0),
                                                   child: TextFormField(
                                                     controller:
                                                         _model.textController,
@@ -177,10 +174,7 @@ class _CellWidgetState extends State<CellWidget> {
                                                       contentPadding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  8.0),
+                                                                  0, 0, 0, 8),
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -196,26 +190,24 @@ class _CellWidgetState extends State<CellWidget> {
                                                   ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(width: 5.0)),
+                                            ].divide(const SizedBox(width: 5)),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 10.0, 0.0),
+                                                    0, 0, 10, 0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 context.pushNamed('AddCell');
                                               },
                                               text: 'Add new',
                                               options: FFButtonOptions(
-                                                height: 40.0,
+                                                height: 40,
                                                 padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
+                                                    .fromSTEB(24, 0, 24, 0),
                                                 iconPadding:
                                                     const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
+                                                        .fromSTEB(0, 0, 0, 0),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
@@ -229,13 +221,13 @@ class _CellWidgetState extends State<CellWidget> {
                                                           fontWeight:
                                                               FontWeight.w300,
                                                         ),
-                                                elevation: 0.0,
+                                                elevation: 0,
                                                 borderSide: const BorderSide(
                                                   color: Colors.transparent,
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(20.0),
+                                                    BorderRadius.circular(20),
                                               ),
                                             ),
                                           ),
@@ -245,10 +237,10 @@ class _CellWidgetState extends State<CellWidget> {
                                         child: Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 15.0, 0.0, 0.0),
+                                                  0, 15, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 335.0,
+                                            height: 335,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -515,7 +507,7 @@ class _CellWidgetState extends State<CellWidget> {
                                                             );
                                                           } else {
                                                             return Container(
-                                                              height: 30.0,
+                                                              height: 30,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: const Color(
@@ -523,13 +515,12 @@ class _CellWidgetState extends State<CellWidget> {
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            5.0),
+                                                                            5),
                                                               ),
                                                               child: Align(
                                                                 alignment:
                                                                     const AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Text(
                                                                   'Inactive',
                                                                   style: FlutterFlowTheme.of(
@@ -560,16 +551,16 @@ class _CellWidgetState extends State<CellWidget> {
                                                                 FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                            borderRadius: 8.0,
-                                                            borderWidth: 1.0,
-                                                            buttonSize: 30.0,
+                                                            borderRadius: 8,
+                                                            borderWidth: 1,
+                                                            buttonSize: 30,
                                                             icon: Icon(
                                                               Icons
                                                                   .remove_red_eye,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryText,
-                                                              size: 12.0,
+                                                              size: 12,
                                                             ),
                                                             onPressed:
                                                                 () async {
@@ -597,16 +588,16 @@ class _CellWidgetState extends State<CellWidget> {
                                                                 FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                            borderRadius: 8.0,
-                                                            borderWidth: 1.0,
-                                                            buttonSize: 30.0,
+                                                            borderRadius: 8,
+                                                            borderWidth: 1,
+                                                            buttonSize: 30,
                                                             icon: FaIcon(
                                                               FontAwesomeIcons
                                                                   .edit,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryText,
-                                                              size: 12.0,
+                                                              size: 12,
                                                             ),
                                                             onPressed:
                                                                 () async {
@@ -634,16 +625,16 @@ class _CellWidgetState extends State<CellWidget> {
                                                                 FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                            borderRadius: 8.0,
-                                                            borderWidth: 1.0,
-                                                            buttonSize: 30.0,
+                                                            borderRadius: 8,
+                                                            borderWidth: 1,
+                                                            buttonSize: 30,
                                                             icon: Icon(
                                                               Icons
                                                                   .delete_forever_outlined,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryText,
-                                                              size: 12.0,
+                                                              size: 12,
                                                             ),
                                                             onPressed:
                                                                 () async {
@@ -680,8 +671,8 @@ class _CellWidgetState extends State<CellWidget> {
                                                               }
                                                             },
                                                           ),
-                                                        ].divide(const SizedBox(
-                                                            width: 5.0)),
+                                                        ].divide(
+                                                            const SizedBox(width: 5)),
                                                       ),
                                                     ]
                                                         .map((c) => DataCell(c))
@@ -695,12 +686,11 @@ class _CellWidgetState extends State<CellWidget> {
                                                   showFirstLastButtons: true,
                                                   width: double.infinity,
                                                   height: double.infinity,
-                                                  headingRowHeight: 56.0,
-                                                  dataRowHeight: 48.0,
-                                                  columnSpacing: 20.0,
+                                                  headingRowHeight: 56,
+                                                  dataRowHeight: 48,
+                                                  columnSpacing: 20,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                      BorderRadius.circular(8),
                                                   addHorizontalDivider: true,
                                                   addTopAndBottomDivider: false,
                                                   hideDefaultHorizontalDivider:
@@ -709,14 +699,13 @@ class _CellWidgetState extends State<CellWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .primaryText,
-                                                  horizontalDividerThickness:
-                                                      1.0,
+                                                  horizontalDividerThickness: 1,
                                                   addVerticalDivider: true,
                                                   verticalDividerColor:
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .primaryText,
-                                                  verticalDividerThickness: 1.0,
+                                                  verticalDividerThickness: 1,
                                                 );
                                               },
                                             ),

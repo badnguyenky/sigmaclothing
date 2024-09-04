@@ -31,7 +31,7 @@ class _EmptyDataWidgetState extends State<EmptyDataWidget> {
     super.initState();
     _model = createModel(context, () => EmptyDataModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -48,8 +48,8 @@ class _EmptyDataWidgetState extends State<EmptyDataWidget> {
       children: [
         Lottie.asset(
           'assets/lottie_animations/empty.json',
-          width: 200.0,
-          height: 200.0,
+          width: 200,
+          height: 200,
           fit: BoxFit.cover,
           animate: true,
         ),
@@ -57,7 +57,7 @@ class _EmptyDataWidgetState extends State<EmptyDataWidget> {
           widget.title,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Poppins',
-                fontSize: 20.0,
+                fontSize: 20,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.bold,
               ),

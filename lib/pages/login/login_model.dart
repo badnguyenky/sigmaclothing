@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class LoginModel extends FlutterFlowModel<LoginWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for InputEmail widget.
   FocusNode? inputEmailFocusNode;

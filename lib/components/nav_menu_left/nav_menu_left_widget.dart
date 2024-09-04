@@ -32,7 +32,7 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
     super.initState();
     _model = createModel(context, () => NavMenuLeftModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -52,7 +52,7 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
       width: FFAppState().isNavBarCollapsed == false ? 270.0 : 80.0,
       height: double.infinity,
       constraints: const BoxConstraints(
-        maxWidth: 300.0,
+        maxWidth: 300,
       ),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -60,35 +60,34 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
           BoxShadow(
             color: FlutterFlowTheme.of(context).alternate,
             offset: const Offset(
-              1.0,
-              0.0,
+              1,
+              0,
             ),
           )
         ],
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 16.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 0, 16),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 20.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 16, 20),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   if (FFAppState().isNavBarCollapsed == false)
                     Expanded(
                       child: Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1, 0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(0.0),
+                            borderRadius: BorderRadius.circular(0),
                             child: Image.asset(
                               'assets/images/sigma-logo.png',
-                              height: 50.0,
+                              height: 50,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -103,12 +102,12 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                     onTap: () async {
                       FFAppState().isNavBarCollapsed =
                           !(FFAppState().isNavBarCollapsed ?? true);
-                      setState(() {});
+                      safeSetState(() {});
                     },
                     child: Icon(
                       Icons.menu_rounded,
                       color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 32.0,
+                      size: 32,
                     ),
                   ),
                 ],
@@ -118,10 +117,10 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
               opaque: false,
               cursor: SystemMouseCursors.click ?? MouseCursor.defer,
               onEnter: ((event) async {
-                setState(() => _model.mouseRegionHovered1 = true);
+                safeSetState(() => _model.mouseRegionHovered1 = true);
               }),
               onExit: ((event) async {
-                setState(() => _model.mouseRegionHovered1 = false);
+                safeSetState(() => _model.mouseRegionHovered1 = false);
               }),
               child: InkWell(
                 splashColor: Colors.transparent,
@@ -151,14 +150,14 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                       FlutterFlowTheme.of(context).primary,
                     ),
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(16.0),
-                      bottomRight: Radius.circular(0.0),
-                      topLeft: Radius.circular(16.0),
-                      topRight: Radius.circular(0.0),
+                      bottomLeft: Radius.circular(16),
+                      bottomRight: Radius.circular(0),
+                      topLeft: Radius.circular(16),
+                      topRight: Radius.circular(0),
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -171,12 +170,12 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                                 : FlutterFlowTheme.of(context).secondaryText,
                             Colors.white,
                           ),
-                          size: 28.0,
+                          size: 28,
                         ),
                         if (FFAppState().isNavBarCollapsed == false)
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Text(
                               'Dashboard',
                               style: FlutterFlowTheme.of(context)
@@ -204,10 +203,10 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
               opaque: false,
               cursor: SystemMouseCursors.click ?? MouseCursor.defer,
               onEnter: ((event) async {
-                setState(() => _model.mouseRegionHovered2 = true);
+                safeSetState(() => _model.mouseRegionHovered2 = true);
               }),
               onExit: ((event) async {
-                setState(() => _model.mouseRegionHovered2 = false);
+                safeSetState(() => _model.mouseRegionHovered2 = false);
               }),
               child: InkWell(
                 splashColor: Colors.transparent,
@@ -237,14 +236,14 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                       FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(16.0),
-                      bottomRight: Radius.circular(0.0),
-                      topLeft: Radius.circular(16.0),
-                      topRight: Radius.circular(0.0),
+                      bottomLeft: Radius.circular(16),
+                      bottomRight: Radius.circular(0),
+                      topLeft: Radius.circular(16),
+                      topRight: Radius.circular(0),
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -257,12 +256,12 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                                 : FlutterFlowTheme.of(context).secondaryText,
                             FlutterFlowTheme.of(context).secondaryText,
                           ),
-                          size: 28.0,
+                          size: 28,
                         ),
                         if (FFAppState().isNavBarCollapsed == false)
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Text(
                               'Scoreboard',
                               style: FlutterFlowTheme.of(context)
@@ -291,10 +290,10 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
               opaque: false,
               cursor: SystemMouseCursors.click ?? MouseCursor.defer,
               onEnter: ((event) async {
-                setState(() => _model.mouseRegionHovered3 = true);
+                safeSetState(() => _model.mouseRegionHovered3 = true);
               }),
               onExit: ((event) async {
-                setState(() => _model.mouseRegionHovered3 = false);
+                safeSetState(() => _model.mouseRegionHovered3 = false);
               }),
               child: InkWell(
                 splashColor: Colors.transparent,
@@ -324,14 +323,14 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                       FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(16.0),
-                      bottomRight: Radius.circular(0.0),
-                      topLeft: Radius.circular(16.0),
-                      topRight: Radius.circular(0.0),
+                      bottomLeft: Radius.circular(16),
+                      bottomRight: Radius.circular(0),
+                      topLeft: Radius.circular(16),
+                      topRight: Radius.circular(0),
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -344,12 +343,12 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                                 : FlutterFlowTheme.of(context).secondaryText,
                             FlutterFlowTheme.of(context).secondaryText,
                           ),
-                          size: 28.0,
+                          size: 28,
                         ),
                         if (FFAppState().isNavBarCollapsed == false)
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Text(
                               'Cell',
                               style: FlutterFlowTheme.of(context)
@@ -378,10 +377,10 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
               opaque: false,
               cursor: SystemMouseCursors.click ?? MouseCursor.defer,
               onEnter: ((event) async {
-                setState(() => _model.mouseRegionHovered4 = true);
+                safeSetState(() => _model.mouseRegionHovered4 = true);
               }),
               onExit: ((event) async {
-                setState(() => _model.mouseRegionHovered4 = false);
+                safeSetState(() => _model.mouseRegionHovered4 = false);
               }),
               child: InkWell(
                 splashColor: Colors.transparent,
@@ -411,14 +410,14 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                       FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(16.0),
-                      bottomRight: Radius.circular(0.0),
-                      topLeft: Radius.circular(16.0),
-                      topRight: Radius.circular(0.0),
+                      bottomLeft: Radius.circular(16),
+                      bottomRight: Radius.circular(0),
+                      topLeft: Radius.circular(16),
+                      topRight: Radius.circular(0),
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -431,12 +430,12 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                                 : FlutterFlowTheme.of(context).secondaryText,
                             FlutterFlowTheme.of(context).secondaryText,
                           ),
-                          size: 28.0,
+                          size: 28,
                         ),
                         if (FFAppState().isNavBarCollapsed == false)
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Text(
                               'Assign Job',
                               style: FlutterFlowTheme.of(context)
@@ -465,10 +464,10 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
               opaque: false,
               cursor: SystemMouseCursors.click ?? MouseCursor.defer,
               onEnter: ((event) async {
-                setState(() => _model.mouseRegionHovered5 = true);
+                safeSetState(() => _model.mouseRegionHovered5 = true);
               }),
               onExit: ((event) async {
-                setState(() => _model.mouseRegionHovered5 = false);
+                safeSetState(() => _model.mouseRegionHovered5 = false);
               }),
               child: InkWell(
                 splashColor: Colors.transparent,
@@ -498,14 +497,14 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                       FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(16.0),
-                      bottomRight: Radius.circular(0.0),
-                      topLeft: Radius.circular(16.0),
-                      topRight: Radius.circular(0.0),
+                      bottomLeft: Radius.circular(16),
+                      bottomRight: Radius.circular(0),
+                      topLeft: Radius.circular(16),
+                      topRight: Radius.circular(0),
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -518,12 +517,12 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                                 : FlutterFlowTheme.of(context).secondaryText,
                             FlutterFlowTheme.of(context).secondaryText,
                           ),
-                          size: 28.0,
+                          size: 28,
                         ),
                         if (FFAppState().isNavBarCollapsed == false)
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Text(
                               'Popup Settings',
                               style: FlutterFlowTheme.of(context)
@@ -550,28 +549,27 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 16.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 16, 16),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           if (FFAppState().isNavBarCollapsed == false)
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Align(
-                                      alignment: const AlignmentDirectional(1.0, 0.0),
+                                      alignment: const AlignmentDirectional(1, 0),
                                       child: Text(
                                         'SIGMA Sentinel',
                                         style: FlutterFlowTheme.of(context)
@@ -583,10 +581,10 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment: const AlignmentDirectional(1.0, 0.0),
+                                      alignment: const AlignmentDirectional(1, 0),
                                       child: Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Text(
                                           'Powered by Connectiv',
                                           style: FlutterFlowTheme.of(context)
@@ -612,7 +610,7 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                 ),
               ),
             ),
-          ].divide(const SizedBox(height: 12.0)),
+          ].divide(const SizedBox(height: 12)),
         ),
       ),
     );

@@ -35,7 +35,7 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
         TextEditingController(text: widget.cell?.cellName);
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -59,16 +59,16 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
             children: [
               wrapWithModel(
                 model: _model.navMenuLeftModel,
-                updateCallback: () => setState(() {}),
+                updateCallback: () => safeSetState(() {}),
                 child: const NavMenuLeftWidget(
                   index: 2,
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10),
                   child: Container(
-                    width: 100.0,
+                    width: 100,
                     height: double.infinity,
                     decoration: const BoxDecoration(),
                     child: Column(
@@ -76,7 +76,7 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                       children: [
                         wrapWithModel(
                           model: _model.navHeaderModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavHeaderWidget(
                             title: 'View Cell',
                           ),
@@ -86,20 +86,20 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.circular(30.0),
+                            borderRadius: BorderRadius.circular(30),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(25.0),
+                            padding: const EdgeInsets.all(25),
                             child: Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(20),
                                 shape: BoxShape.rectangle,
                                 border: Border.all(
                                   color: const Color(0xFFECECEC),
-                                  width: 1.0,
+                                  width: 1,
                                 ),
                               ),
                               child: Column(
@@ -112,18 +112,18 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                     children: [
                                       Expanded(
                                         child: Container(
-                                          width: 100.0,
+                                          width: 100,
                                           decoration: const BoxDecoration(
                                             color: Color(0xFFF7F7F7),
                                             borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(0.0),
-                                              bottomRight: Radius.circular(0.0),
-                                              topLeft: Radius.circular(20.0),
-                                              topRight: Radius.circular(20.0),
+                                              bottomLeft: Radius.circular(0),
+                                              bottomRight: Radius.circular(0),
+                                              topLeft: Radius.circular(20),
+                                              topRight: Radius.circular(20),
                                             ),
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: const EdgeInsets.all(10),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -146,16 +146,16 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                   },
                                                   text: 'Edit',
                                                   options: FFButtonOptions(
-                                                    width: 80.0,
-                                                    height: 40.0,
+                                                    width: 80,
+                                                    height: 40,
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(24.0, 0.0,
-                                                                24.0, 0.0),
+                                                            .fromSTEB(
+                                                                24, 0, 24, 0),
                                                     iconPadding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 0, 0, 0),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primary,
@@ -169,14 +169,14 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
-                                                    elevation: 0.0,
+                                                    elevation: 0,
                                                     borderSide: const BorderSide(
                                                       color: Colors.transparent,
-                                                      width: 1.0,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            20.0),
+                                                            20),
                                                   ),
                                                 ),
                                               ],
@@ -187,7 +187,7 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                     ],
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(20.0),
+                                    padding: const EdgeInsets.all(20),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -197,8 +197,8 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                             autovalidateMode:
                                                 AutovalidateMode.disabled,
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -1.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(-1, 0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -207,15 +207,15 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 20.0),
+                                                            .fromSTEB(
+                                                                0, 0, 0, 20),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
                                                         Container(
-                                                          width: 150.0,
-                                                          height: 40.0,
+                                                          width: 150,
+                                                          height: 40,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -225,7 +225,7 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    -1.0, 0.0),
+                                                                    -1, 0),
                                                             child: Text(
                                                               'Cell Name *',
                                                               style: FlutterFlowTheme
@@ -237,13 +237,13 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                                     letterSpacing:
                                                                         0.0,
                                                                     lineHeight:
-                                                                        2.0,
+                                                                        2,
                                                                   ),
                                                             ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 500.0,
+                                                          width: 500,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -292,12 +292,12 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .alternate,
-                                                                    width: 2.0,
+                                                                    width: 2,
                                                                   ),
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              20.0),
+                                                                              20),
                                                                 ),
                                                                 focusedBorder:
                                                                     OutlineInputBorder(
@@ -306,12 +306,12 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary,
-                                                                    width: 2.0,
+                                                                    width: 2,
                                                                   ),
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              20.0),
+                                                                              20),
                                                                 ),
                                                                 errorBorder:
                                                                     OutlineInputBorder(
@@ -320,12 +320,12 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .error,
-                                                                    width: 2.0,
+                                                                    width: 2,
                                                                   ),
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              20.0),
+                                                                              20),
                                                                 ),
                                                                 focusedErrorBorder:
                                                                     OutlineInputBorder(
@@ -334,12 +334,12 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .error,
-                                                                    width: 2.0,
+                                                                    width: 2,
                                                                   ),
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              20.0),
+                                                                              20),
                                                                 ),
                                                               ),
                                                               style: FlutterFlowTheme
@@ -364,15 +364,15 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 20.0),
+                                                            .fromSTEB(
+                                                                0, 0, 0, 20),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
                                                         Container(
-                                                          width: 150.0,
-                                                          height: 40.0,
+                                                          width: 150,
+                                                          height: 40,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -382,7 +382,7 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    -1.0, 0.0),
+                                                                    -1, 0),
                                                             child: Text(
                                                               'Color Code *',
                                                               style: FlutterFlowTheme
@@ -394,7 +394,7 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                                     letterSpacing:
                                                                         0.0,
                                                                     lineHeight:
-                                                                        2.0,
+                                                                        2,
                                                                   ),
                                                             ),
                                                           ),
@@ -462,16 +462,17 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                                       .only(
                                                                 bottomLeft: Radius
                                                                     .circular(
-                                                                        0.0),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        0.0),
+                                                                        0),
+                                                                bottomRight:
+                                                                    Radius
+                                                                        .circular(
+                                                                            0),
                                                                 topLeft: Radius
                                                                     .circular(
-                                                                        0.0),
+                                                                        0),
                                                                 topRight: Radius
                                                                     .circular(
-                                                                        0.0),
+                                                                        0),
                                                               ),
                                                               border:
                                                                   Border.all(
@@ -483,10 +484,10 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                             child: Padding(
                                                               padding:
                                                                   const EdgeInsets
-                                                                      .all(5.0),
+                                                                      .all(5),
                                                               child: Container(
-                                                                width: 40.0,
-                                                                height: 20.0,
+                                                                width: 40,
+                                                                height: 20,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: _model
@@ -514,19 +515,18 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                     children: [
                                       Expanded(
                                         child: Container(
-                                          width: 100.0,
+                                          width: 100,
                                           decoration: const BoxDecoration(
                                             color: Color(0xFFF7F7F7),
                                             borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20.0),
-                                              bottomRight:
-                                                  Radius.circular(20.0),
-                                              topLeft: Radius.circular(0.0),
-                                              topRight: Radius.circular(0.0),
+                                              bottomLeft: Radius.circular(20),
+                                              bottomRight: Radius.circular(20),
+                                              topLeft: Radius.circular(0),
+                                              topRight: Radius.circular(0),
                                             ),
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(20.0),
+                                            padding: const EdgeInsets.all(20),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -534,8 +534,7 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 15.0, 0.0),
+                                                      .fromSTEB(0, 0, 15, 0),
                                                   child: FFButtonWidget(
                                                     onPressed: () {
                                                       print(
@@ -543,21 +542,15 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                     },
                                                     text: 'Cancel',
                                                     options: FFButtonOptions(
-                                                      height: 40.0,
+                                                      height: 40,
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24.0,
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0),
+                                                                  24, 0, 24, 0),
                                                       iconPadding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  0, 0, 0, 0),
                                                       color: const Color(0xFFD2D5D8),
                                                       textStyle:
                                                           FlutterFlowTheme.of(
@@ -571,15 +564,15 @@ class _ViewCellWidgetState extends State<ViewCellWidget> {
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                      elevation: 0.0,
+                                                      elevation: 0,
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              20.0),
+                                                              20),
                                                     ),
                                                   ),
                                                 ),

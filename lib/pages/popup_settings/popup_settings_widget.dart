@@ -26,7 +26,7 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
     _model = createModel(context, () => PopupSettingsModel());
 
     _model.switchValue = true;
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -50,16 +50,16 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
             children: [
               wrapWithModel(
                 model: _model.navMenuLeftModel,
-                updateCallback: () => setState(() {}),
+                updateCallback: () => safeSetState(() {}),
                 child: const NavMenuLeftWidget(
                   index: 4,
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10),
                   child: Container(
-                    width: 100.0,
+                    width: 100,
                     height: double.infinity,
                     decoration: const BoxDecoration(),
                     child: Column(
@@ -67,7 +67,7 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                       children: [
                         wrapWithModel(
                           model: _model.navHeaderModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavHeaderWidget(
                             title: 'Popup Settings',
                           ),
@@ -77,20 +77,20 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.circular(30.0),
+                            borderRadius: BorderRadius.circular(30),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(25.0),
+                            padding: const EdgeInsets.all(25),
                             child: Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(20),
                                 shape: BoxShape.rectangle,
                                 border: Border.all(
                                   color: const Color(0xFFECECEC),
-                                  width: 1.0,
+                                  width: 1,
                                 ),
                               ),
                               child: Column(
@@ -101,15 +101,15 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                                     children: [
                                       Expanded(
                                         child: Container(
-                                          width: 100.0,
-                                          height: 80.0,
+                                          width: 100,
+                                          height: 80,
                                           decoration: const BoxDecoration(
                                             color: Color(0xFFF7F7F7),
                                           ),
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 10.0, 0.0, 0.0),
+                                                    10, 10, 0, 0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -122,7 +122,7 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 16.0,
+                                                        fontSize: 16,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -152,7 +152,7 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                                         child: Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 20.0, 0.0, 0.0),
+                                                  0, 20, 0, 0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
@@ -160,8 +160,7 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                                             children: [
                                               Padding(
                                                 padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   'Popup Message*',
                                                   style: FlutterFlowTheme.of(
@@ -175,11 +174,11 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                                               ),
                                               const SizedBox(
                                                 width: double.infinity,
-                                                height: 500.0,
+                                                height: 500,
                                                 child: custom_widgets
                                                     .RichTextEditor(
                                                   width: double.infinity,
-                                                  height: 500.0,
+                                                  height: 500,
                                                 ),
                                               ),
                                             ],
@@ -190,7 +189,7 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
+                                        10, 0, 0, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -206,11 +205,11 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 0.0, 0.0),
+                                                  20, 0, 0, 0),
                                           child: Switch.adaptive(
                                             value: _model.switchValue!,
                                             onChanged: (newValue) async {
-                                              setState(() => _model
+                                              safeSetState(() => _model
                                                   .switchValue = newValue);
                                             },
                                             activeColor:
@@ -235,20 +234,19 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                                     children: [
                                       Expanded(
                                         child: Container(
-                                          width: 100.0,
-                                          height: 100.0,
+                                          width: 100,
+                                          height: 100,
                                           decoration: const BoxDecoration(
                                             color: Color(0xFFF7F7F7),
                                             borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20.0),
-                                              bottomRight:
-                                                  Radius.circular(20.0),
-                                              topLeft: Radius.circular(0.0),
-                                              topRight: Radius.circular(0.0),
+                                              bottomLeft: Radius.circular(20),
+                                              bottomRight: Radius.circular(20),
+                                              topLeft: Radius.circular(0),
+                                              topRight: Radius.circular(0),
                                             ),
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: const EdgeInsets.all(10),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -256,8 +254,7 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 15.0, 0.0),
+                                                      .fromSTEB(0, 0, 15, 0),
                                                   child: FFButtonWidget(
                                                     onPressed: () {
                                                       print(
@@ -265,21 +262,15 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                                                     },
                                                     text: 'Save',
                                                     options: FFButtonOptions(
-                                                      height: 40.0,
+                                                      height: 40,
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24.0,
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0),
+                                                                  24, 0, 24, 0),
                                                       iconPadding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  0, 0, 0, 0),
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -296,15 +287,15 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                      elevation: 0.0,
+                                                      elevation: 0,
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              20.0),
+                                                              20),
                                                     ),
                                                   ),
                                                 ),
@@ -314,15 +305,15 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                                                   },
                                                   text: 'Cancel',
                                                   options: FFButtonOptions(
-                                                    height: 40.0,
+                                                    height: 40,
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(24.0, 0.0,
-                                                                24.0, 0.0),
+                                                            .fromSTEB(
+                                                                24, 0, 24, 0),
                                                     iconPadding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 0, 0, 0),
                                                     color: const Color(0xFFD2D5D8),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
@@ -332,14 +323,14 @@ class _PopupSettingsWidgetState extends State<PopupSettingsWidget> {
                                                           color: Colors.white,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                    elevation: 0.0,
+                                                    elevation: 0,
                                                     borderSide: const BorderSide(
                                                       color: Colors.transparent,
-                                                      width: 1.0,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            20.0),
+                                                            20),
                                                   ),
                                                 ),
                                               ],

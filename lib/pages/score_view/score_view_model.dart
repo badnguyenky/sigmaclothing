@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 class ScoreViewModel extends FlutterFlowModel<ScoreViewWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for NavMenuLeft component.
   late NavMenuLeftModel navMenuLeftModel;
   // State field(s) for PaginatedDataTable widget.

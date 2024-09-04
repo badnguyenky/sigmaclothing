@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 class CellModel extends FlutterFlowModel<CellWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for NavMenuLeft component.
   late NavMenuLeftModel navMenuLeftModel;
   // Model for NavHeader component.

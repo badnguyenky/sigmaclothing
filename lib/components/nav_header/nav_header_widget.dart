@@ -33,7 +33,7 @@ class _NavHeaderWidgetState extends State<NavHeaderWidget> {
     super.initState();
     _model = createModel(context, () => NavHeaderModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -47,7 +47,7 @@ class _NavHeaderWidgetState extends State<NavHeaderWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 50.0,
+      height: 50,
       decoration: const BoxDecoration(),
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -57,20 +57,20 @@ class _NavHeaderWidgetState extends State<NavHeaderWidget> {
             widget.title!,
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Poppins',
-                  fontSize: 20.0,
+                  fontSize: 20,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
           ),
           Container(
-            height: 100.0,
+            height: 100,
             decoration: const BoxDecoration(),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Builder(
                   builder: (context) => Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -82,9 +82,9 @@ class _NavHeaderWidgetState extends State<NavHeaderWidget> {
                           context: context,
                           isGlobal: false,
                           avoidOverflow: true,
-                          targetAnchor: const AlignmentDirectional(0.0, 1.0)
+                          targetAnchor: const AlignmentDirectional(0, 1)
                               .resolve(Directionality.of(context)),
-                          followerAnchor: const AlignmentDirectional(0.0, 1.0)
+                          followerAnchor: const AlignmentDirectional(0, 1)
                               .resolve(Directionality.of(context)),
                           builder: (dialogContext) {
                             return const Material(
@@ -97,13 +97,13 @@ class _NavHeaderWidgetState extends State<NavHeaderWidget> {
                       child: Icon(
                         Icons.group_rounded,
                         color: FlutterFlowTheme.of(context).primaryText,
-                        size: 24.0,
+                        size: 24,
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                   child: Text(
                     currentUserEmail,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(

@@ -48,7 +48,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
 
     _model.txtCompletionTimeFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -72,16 +72,16 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
             children: [
               wrapWithModel(
                 model: _model.navMenuLeftModel,
-                updateCallback: () => setState(() {}),
+                updateCallback: () => safeSetState(() {}),
                 child: const NavMenuLeftWidget(
                   index: 1,
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10),
                   child: Container(
-                    width: 100.0,
+                    width: 100,
                     height: double.infinity,
                     decoration: const BoxDecoration(),
                     child: SingleChildScrollView(
@@ -90,7 +90,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                         children: [
                           wrapWithModel(
                             model: _model.navHeaderModel,
-                            updateCallback: () => setState(() {}),
+                            updateCallback: () => safeSetState(() {}),
                             child: const NavHeaderWidget(
                               title: 'Add Scoreboard',
                             ),
@@ -102,12 +102,12 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                               if (!snapshot.hasData) {
                                 return Center(
                                   child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
+                                    width: 50,
+                                    height: 50,
                                     child: SpinKitCircle(
                                       color:
                                           FlutterFlowTheme.of(context).primary,
-                                      size: 50.0,
+                                      size: 50,
                                     ),
                                   ),
                                 );
@@ -120,20 +120,20 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(30.0),
+                                  borderRadius: BorderRadius.circular(30),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(25.0),
+                                  padding: const EdgeInsets.all(25),
                                   child: Container(
                                     width: double.infinity,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(15.0),
+                                      borderRadius: BorderRadius.circular(15),
                                       shape: BoxShape.rectangle,
                                       border: Border.all(
                                         color: const Color(0xFFECECEC),
-                                        width: 1.0,
+                                        width: 1,
                                       ),
                                     ),
                                     child: Column(
@@ -142,7 +142,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.all(20.0),
+                                          padding: const EdgeInsets.all(20),
                                           child: Container(
                                             decoration: const BoxDecoration(),
                                             child: Form(
@@ -150,8 +150,8 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                               autovalidateMode:
                                                   AutovalidateMode.disabled,
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    -1.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(-1, 0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.min,
@@ -162,17 +162,14 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  20.0),
+                                                                  0, 0, 0, 20),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
                                                           Container(
-                                                            width: 200.0,
-                                                            height: 40.0,
+                                                            width: 200,
+                                                            height: 40,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -190,13 +187,13 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                     letterSpacing:
                                                                         0.0,
                                                                     lineHeight:
-                                                                        2.0,
+                                                                        2,
                                                                   ),
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 500.0,
-                                                            height: 50.0,
+                                                            width: 500,
+                                                            height: 50,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: const Color(
@@ -204,28 +201,27 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          20.0),
+                                                                          20),
                                                               border:
                                                                   Border.all(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .alternate,
-                                                                width: 1.0,
+                                                                width: 1,
                                                               ),
                                                             ),
                                                             child: Align(
                                                               alignment:
                                                                   const AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
+                                                                      -1, 0),
                                                               child: Padding(
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            8,
+                                                                            0,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   containerJobsRecord
                                                                       .jobName,
@@ -246,17 +242,14 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                       ),
                                                     ),
                                                     Container(
-                                                      width: 1440.0,
+                                                      width: 1440,
                                                       decoration:
                                                           const BoxDecoration(),
                                                       child: Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    20.0),
+                                                                .fromSTEB(0, 0,
+                                                                    0, 20),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.min,
@@ -265,8 +258,8 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                   .start,
                                                           children: [
                                                             Container(
-                                                              width: 200.0,
-                                                              height: 40.0,
+                                                              width: 200,
+                                                              height: 40,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
@@ -284,7 +277,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                       letterSpacing:
                                                                           0.0,
                                                                       lineHeight:
-                                                                          2.0,
+                                                                          2,
                                                                     ),
                                                               ),
                                                             ),
@@ -336,7 +329,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                           ),
                                                                                     ),
                                                                                   ),
-                                                                                  fixedWidth: 100.0,
+                                                                                  fixedWidth: 100,
                                                                                 ),
                                                                                 DataColumn2(
                                                                                   label: DefaultTextStyle.merge(
@@ -411,7 +404,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                       Expanded(
                                                                                         child: Builder(
                                                                                           builder: (context) => Padding(
-                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
                                                                                             child: FFButtonWidget(
                                                                                               onPressed: () async {
                                                                                                 await showDialog(
@@ -421,7 +414,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                                       elevation: 0,
                                                                                                       insetPadding: EdgeInsets.zero,
                                                                                                       backgroundColor: Colors.transparent,
-                                                                                                      alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                                      alignment: const AlignmentDirectional(0, 0).resolve(Directionality.of(context)),
                                                                                                       child: GestureDetector(
                                                                                                         onTap: () => FocusScope.of(dialogContext).unfocus(),
                                                                                                         child: EditScoreWidget(
@@ -436,24 +429,24 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                               },
                                                                                               text: 'Edit',
                                                                                               options: FFButtonOptions(
-                                                                                                width: 100.0,
-                                                                                                height: 40.0,
-                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                width: 100,
+                                                                                                height: 40,
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                                                 color: FlutterFlowTheme.of(context).primary,
                                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                       fontFamily: 'Poppins',
                                                                                                       color: Colors.white,
-                                                                                                      fontSize: 14.0,
+                                                                                                      fontSize: 14,
                                                                                                       letterSpacing: 0.0,
                                                                                                       fontWeight: FontWeight.normal,
                                                                                                     ),
-                                                                                                elevation: 0.0,
+                                                                                                elevation: 0,
                                                                                                 borderSide: const BorderSide(
                                                                                                   color: Colors.transparent,
-                                                                                                  width: 1.0,
+                                                                                                  width: 1,
                                                                                                 ),
-                                                                                                borderRadius: BorderRadius.circular(20.0),
+                                                                                                borderRadius: BorderRadius.circular(20),
                                                                                               ),
                                                                                               showLoadingIndicator: false,
                                                                                             ),
@@ -481,24 +474,24 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                           },
                                                                                           text: 'Delete',
                                                                                           options: FFButtonOptions(
-                                                                                            width: 100.0,
-                                                                                            height: 40.0,
-                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                            iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                            width: 100,
+                                                                                            height: 40,
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                                                                            iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                                             color: FlutterFlowTheme.of(context).primary,
                                                                                             textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                   fontFamily: 'Poppins',
                                                                                                   color: Colors.white,
-                                                                                                  fontSize: 14.0,
+                                                                                                  fontSize: 14,
                                                                                                   letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.normal,
                                                                                                 ),
-                                                                                            elevation: 0.0,
+                                                                                            elevation: 0,
                                                                                             borderSide: const BorderSide(
                                                                                               color: Colors.transparent,
-                                                                                              width: 1.0,
+                                                                                              width: 1,
                                                                                             ),
-                                                                                            borderRadius: BorderRadius.circular(20.0),
+                                                                                            borderRadius: BorderRadius.circular(20),
                                                                                           ),
                                                                                         ),
                                                                                       ),
@@ -511,15 +504,15 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                               width: MediaQuery.sizeOf(context).width * 0.5,
                                                                               height: (56 + 48 * containerJobsRecord.scores.length).toDouble(),
                                                                               minWidth: MediaQuery.sizeOf(context).width * 0.5,
-                                                                              headingRowHeight: 56.0,
-                                                                              dataRowHeight: 48.0,
-                                                                              columnSpacing: 20.0,
-                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                              headingRowHeight: 56,
+                                                                              dataRowHeight: 48,
+                                                                              columnSpacing: 20,
+                                                                              borderRadius: BorderRadius.circular(8),
                                                                               addHorizontalDivider: true,
                                                                               addTopAndBottomDivider: false,
                                                                               hideDefaultHorizontalDivider: true,
                                                                               horizontalDividerColor: const Color(0xFFDDDDDD),
-                                                                              horizontalDividerThickness: 1.0,
+                                                                              horizontalDividerThickness: 1,
                                                                               addVerticalDivider: false,
                                                                             );
                                                                           },
@@ -527,9 +520,9 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                       ),
                                                                     Wrap(
                                                                       spacing:
-                                                                          0.0,
+                                                                          0,
                                                                       runSpacing:
-                                                                          20.0,
+                                                                          20,
                                                                       alignment:
                                                                           WrapAlignment
                                                                               .start,
@@ -549,15 +542,15 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                       children: [
                                                                         Container(
                                                                           width:
-                                                                              250.0,
+                                                                              250,
                                                                           height:
-                                                                              50.0,
+                                                                              50,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryBackground,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(20.0),
+                                                                                BorderRadius.circular(20),
                                                                             border:
                                                                                 Border.all(
                                                                               color: FlutterFlowTheme.of(context).alternate,
@@ -572,7 +565,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                             children: [
                                                                               Expanded(
                                                                                 child: Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                                                                   child: TextFormField(
                                                                                     controller: _model.txtScoreTimeTextController,
                                                                                     focusNode: _model.txtScoreTimeFocusNode,
@@ -595,13 +588,13 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                               ),
                                                                               FlutterFlowIconButton(
                                                                                 borderColor: Colors.transparent,
-                                                                                borderRadius: 30.0,
-                                                                                borderWidth: 0.0,
-                                                                                buttonSize: 40.0,
+                                                                                borderRadius: 30,
+                                                                                borderWidth: 0,
+                                                                                buttonSize: 40,
                                                                                 icon: Icon(
                                                                                   Icons.access_time_outlined,
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  size: 24.0,
+                                                                                  size: 24,
                                                                                 ),
                                                                                 onPressed: () async {
                                                                                   final datePicked1Time = await showTimePicker(
@@ -615,7 +608,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                         headerForegroundColor: FlutterFlowTheme.of(context).info,
                                                                                         headerTextStyle: FlutterFlowTheme.of(context).headlineLarge.override(
                                                                                               fontFamily: 'Poppins',
-                                                                                              fontSize: 32.0,
+                                                                                              fontSize: 32,
                                                                                               letterSpacing: 0.0,
                                                                                               fontWeight: FontWeight.w600,
                                                                                             ),
@@ -624,7 +617,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                         selectedDateTimeBackgroundColor: FlutterFlowTheme.of(context).primary,
                                                                                         selectedDateTimeForegroundColor: FlutterFlowTheme.of(context).info,
                                                                                         actionButtonForegroundColor: FlutterFlowTheme.of(context).primaryText,
-                                                                                        iconSize: 24.0,
+                                                                                        iconSize: 24,
                                                                                       );
                                                                                     },
                                                                                   );
@@ -639,7 +632,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                       );
                                                                                     });
                                                                                   }
-                                                                                  setState(() {
+                                                                                  safeSetState(() {
                                                                                     _model.txtScoreTimeTextController?.text = dateTimeFormat("HH:mm", _model.datePicked1);
                                                                                     _model.txtScoreTimeTextController?.selection = TextSelection.collapsed(offset: _model.txtScoreTimeTextController!.text.length);
                                                                                   });
@@ -650,14 +643,14 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                         ),
                                                                         Padding(
                                                                           padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              20.0,
-                                                                              0.0,
-                                                                              20.0,
-                                                                              0.0),
+                                                                              20,
+                                                                              0,
+                                                                              20,
+                                                                              0),
                                                                           child:
                                                                               SizedBox(
                                                                             width:
-                                                                                250.0,
+                                                                                250,
                                                                             child:
                                                                                 TextFormField(
                                                                               controller: _model.txtTargetReachedTextController,
@@ -677,36 +670,36 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                 enabledBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).alternate,
-                                                                                    width: 1.0,
+                                                                                    width: 1,
                                                                                   ),
-                                                                                  borderRadius: BorderRadius.circular(20.0),
+                                                                                  borderRadius: BorderRadius.circular(20),
                                                                                 ),
                                                                                 focusedBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).primary,
-                                                                                    width: 1.0,
+                                                                                    width: 1,
                                                                                   ),
-                                                                                  borderRadius: BorderRadius.circular(20.0),
+                                                                                  borderRadius: BorderRadius.circular(20),
                                                                                 ),
                                                                                 errorBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).error,
-                                                                                    width: 1.0,
+                                                                                    width: 1,
                                                                                   ),
-                                                                                  borderRadius: BorderRadius.circular(20.0),
+                                                                                  borderRadius: BorderRadius.circular(20),
                                                                                 ),
                                                                                 focusedErrorBorder: OutlineInputBorder(
                                                                                   borderSide: BorderSide(
                                                                                     color: FlutterFlowTheme.of(context).error,
-                                                                                    width: 1.0,
+                                                                                    width: 1,
                                                                                   ),
-                                                                                  borderRadius: BorderRadius.circular(20.0),
+                                                                                  borderRadius: BorderRadius.circular(20),
                                                                                 ),
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     letterSpacing: 0.0,
-                                                                                    lineHeight: 1.0,
+                                                                                    lineHeight: 1,
                                                                                   ),
                                                                               keyboardType: TextInputType.number,
                                                                               validator: _model.txtTargetReachedTextControllerValidator.asValidator(context),
@@ -731,11 +724,11 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                             'Very Bad'
                                                                           ],
                                                                           onChanged: (val) =>
-                                                                              setState(() => _model.dropDownValue = val),
+                                                                              safeSetState(() => _model.dropDownValue = val),
                                                                           width:
-                                                                              250.0,
+                                                                              250,
                                                                           height:
-                                                                              50.0,
+                                                                              50,
                                                                           textStyle: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
@@ -748,23 +741,23 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                             size:
-                                                                                24.0,
+                                                                                24,
                                                                           ),
                                                                           fillColor:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
                                                                           elevation:
-                                                                              2.0,
+                                                                              2,
                                                                           borderColor:
                                                                               FlutterFlowTheme.of(context).alternate,
                                                                           borderWidth:
-                                                                              1.0,
+                                                                              1,
                                                                           borderRadius:
-                                                                              20.0,
+                                                                              20,
                                                                           margin: const EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              0.0),
+                                                                              10,
+                                                                              0,
+                                                                              10,
+                                                                              0),
                                                                           hidesUnderline:
                                                                               true,
                                                                           isOverButton:
@@ -776,10 +769,10 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                         ),
                                                                         Padding(
                                                                           padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              8.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
+                                                                              8,
+                                                                              0,
+                                                                              0,
+                                                                              0),
                                                                           child:
                                                                               FFButtonWidget(
                                                                             onPressed:
@@ -804,13 +797,13 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                 return;
                                                                               } else {
                                                                                 _model.scoresList = containerJobsRecord.scores.toList().cast<ScoreStruct>();
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                                 _model.addToScoresList(ScoreStruct(
                                                                                   time: _model.datePicked1,
                                                                                   performance: _model.dropDownValue,
                                                                                   targetReached: int.tryParse(_model.txtTargetReachedTextController.text),
                                                                                 ));
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
 
                                                                                 await widget.job!.update({
                                                                                   ...mapToFirestore(
@@ -841,23 +834,23 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                 'Add',
                                                                             options:
                                                                                 FFButtonOptions(
-                                                                              height: 40.0,
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              height: 40,
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Colors.white,
-                                                                                    fontSize: 14.0,
+                                                                                    fontSize: 14,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                   ),
-                                                                              elevation: 0.0,
+                                                                              elevation: 0,
                                                                               borderSide: const BorderSide(
                                                                                 color: Colors.transparent,
-                                                                                width: 1.0,
+                                                                                width: 1,
                                                                               ),
-                                                                              borderRadius: BorderRadius.circular(20.0),
+                                                                              borderRadius: BorderRadius.circular(20),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -865,7 +858,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                     ),
                                                                   ].divide(const SizedBox(
                                                                       height:
-                                                                          20.0)),
+                                                                          20)),
                                                                 ),
                                                               ),
                                                             ),
@@ -877,17 +870,14 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  20.0),
+                                                                  0, 0, 0, 20),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
                                                           Container(
-                                                            width: 200.0,
-                                                            height: 40.0,
+                                                            width: 200,
+                                                            height: 40,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -905,13 +895,13 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                     letterSpacing:
                                                                         0.0,
                                                                     lineHeight:
-                                                                        2.0,
+                                                                        2,
                                                                   ),
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 250.0,
-                                                            height: 50.0,
+                                                            width: 250,
+                                                            height: 50,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: const Color(
@@ -919,28 +909,27 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          20.0),
+                                                                          20),
                                                               border:
                                                                   Border.all(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .alternate,
-                                                                width: 1.0,
+                                                                width: 1,
                                                               ),
                                                             ),
                                                             child: Align(
                                                               alignment:
                                                                   const AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
+                                                                      -1, 0),
                                                               child: Padding(
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            8,
+                                                                            0,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   '${valueOrDefault<String>(
                                                                     ((List<int>
@@ -979,17 +968,14 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  20.0),
+                                                                  0, 0, 0, 20),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
                                                           Container(
-                                                            width: 200.0,
-                                                            height: 40.0,
+                                                            width: 200,
+                                                            height: 40,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -1007,12 +993,12 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                     letterSpacing:
                                                                         0.0,
                                                                     lineHeight:
-                                                                        2.0,
+                                                                        2,
                                                                   ),
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 500.0,
+                                                            width: 500,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -1025,8 +1011,8 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                       .max,
                                                               children: [
                                                                 Container(
-                                                                  width: 250.0,
-                                                                  height: 50.0,
+                                                                  width: 250,
+                                                                  height: 50,
                                                                   decoration:
                                                                       BoxDecoration(
                                                                     color: FlutterFlowTheme.of(
@@ -1034,15 +1020,14 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                         .secondaryBackground,
                                                                     borderRadius:
                                                                         BorderRadius.circular(
-                                                                            20.0),
+                                                                            20),
                                                                     border:
                                                                         Border
                                                                             .all(
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .alternate,
-                                                                      width:
-                                                                          1.0,
+                                                                      width: 1,
                                                                     ),
                                                                   ),
                                                                   child: Row(
@@ -1057,10 +1042,10 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                         child:
                                                                             Padding(
                                                                           padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
+                                                                              10,
+                                                                              0,
+                                                                              0,
+                                                                              0),
                                                                           child:
                                                                               TextFormField(
                                                                             controller: _model.txtCompletionTimeTextController ??=
@@ -1098,11 +1083,11 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                         borderColor:
                                                                             Colors.transparent,
                                                                         borderRadius:
-                                                                            30.0,
+                                                                            30,
                                                                         borderWidth:
-                                                                            0.0,
+                                                                            0,
                                                                         buttonSize:
-                                                                            40.0,
+                                                                            40,
                                                                         icon:
                                                                             Icon(
                                                                           Icons
@@ -1110,7 +1095,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryText,
                                                                           size:
-                                                                              24.0,
+                                                                              24,
                                                                         ),
                                                                         onPressed:
                                                                             () async {
@@ -1129,7 +1114,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                 headerForegroundColor: FlutterFlowTheme.of(context).info,
                                                                                 headerTextStyle: FlutterFlowTheme.of(context).headlineLarge.override(
                                                                                       fontFamily: 'Poppins',
-                                                                                      fontSize: 32.0,
+                                                                                      fontSize: 32,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w600,
                                                                                     ),
@@ -1138,7 +1123,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                                 selectedDateTimeBackgroundColor: FlutterFlowTheme.of(context).primary,
                                                                                 selectedDateTimeForegroundColor: FlutterFlowTheme.of(context).info,
                                                                                 actionButtonForegroundColor: FlutterFlowTheme.of(context).primaryText,
-                                                                                iconSize: 24.0,
+                                                                                iconSize: 24,
                                                                               );
                                                                             },
                                                                           );
@@ -1154,7 +1139,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                               );
                                                                             });
                                                                           }
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {
                                                                             _model.txtCompletionTimeTextController?.text =
                                                                                 dateTimeFormat("HH:mm", _model.datePicked2);
@@ -1176,17 +1161,14 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  20.0),
+                                                                  0, 0, 0, 20),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
                                                           Container(
-                                                            width: 200.0,
-                                                            height: 40.0,
+                                                            width: 200,
+                                                            height: 40,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -1204,13 +1186,13 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                     letterSpacing:
                                                                         0.0,
                                                                     lineHeight:
-                                                                        2.0,
+                                                                        2,
                                                                   ),
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 500.0,
-                                                            height: 40.0,
+                                                            width: 500,
+                                                            height: 40,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -1219,7 +1201,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                             ),
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    -1.0, 0.0),
+                                                                    -1, 0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -1232,7 +1214,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                           .completionStatus,
                                                                   onChanged:
                                                                       (newValue) async {
-                                                                    setState(() =>
+                                                                    safeSetState(() =>
                                                                         _model.switchValue =
                                                                             newValue);
                                                                   },
@@ -1256,7 +1238,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                       ),
                                                                 ),
                                                               ].divide(const SizedBox(
-                                                                  width: 8.0)),
+                                                                  width: 8)),
                                                             ),
                                                           ),
                                                         ],
@@ -1270,19 +1252,18 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                         ),
                                         Container(
                                           width: double.infinity,
-                                          height: 100.0,
+                                          height: 100,
                                           decoration: const BoxDecoration(
                                             color: Color(0xFFF7F7F7),
                                             borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20.0),
-                                              bottomRight:
-                                                  Radius.circular(20.0),
-                                              topLeft: Radius.circular(0.0),
-                                              topRight: Radius.circular(0.0),
+                                              bottomLeft: Radius.circular(20),
+                                              bottomRight: Radius.circular(20),
+                                              topLeft: Radius.circular(0),
+                                              topRight: Radius.circular(0),
                                             ),
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(20.0),
+                                            padding: const EdgeInsets.all(20),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1290,8 +1271,7 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 15.0, 0.0),
+                                                      .fromSTEB(0, 0, 15, 0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
                                                       if (containerJobsRecord
@@ -1342,21 +1322,15 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                     },
                                                     text: 'Save',
                                                     options: FFButtonOptions(
-                                                      height: 40.0,
+                                                      height: 40,
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24.0,
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0),
+                                                                  24, 0, 24, 0),
                                                       iconPadding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  0, 0, 0, 0),
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1373,15 +1347,15 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                      elevation: 0.0,
+                                                      elevation: 0,
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              20.0),
+                                                              20),
                                                     ),
                                                   ),
                                                 ),
@@ -1391,15 +1365,15 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                   },
                                                   text: 'Cancel',
                                                   options: FFButtonOptions(
-                                                    height: 40.0,
+                                                    height: 40,
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(24.0, 0.0,
-                                                                24.0, 0.0),
+                                                            .fromSTEB(
+                                                                24, 0, 24, 0),
                                                     iconPadding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 0, 0, 0),
                                                     color: const Color(0xFFD2D5D8),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
@@ -1409,14 +1383,14 @@ class _AddScoreBoardWidgetState extends State<AddScoreBoardWidget> {
                                                           color: Colors.white,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                    elevation: 0.0,
+                                                    elevation: 0,
                                                     borderSide: const BorderSide(
                                                       color: Colors.transparent,
-                                                      width: 1.0,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            20.0),
+                                                            20),
                                                   ),
                                                 ),
                                               ],

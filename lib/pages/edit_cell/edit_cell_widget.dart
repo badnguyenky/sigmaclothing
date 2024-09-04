@@ -36,7 +36,7 @@ class _EditCellWidgetState extends State<EditCellWidget> {
     _model.textFieldFocusNode ??= FocusNode();
 
     _model.switchValue = widget.cell!.status;
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -60,16 +60,16 @@ class _EditCellWidgetState extends State<EditCellWidget> {
             children: [
               wrapWithModel(
                 model: _model.navMenuLeftModel,
-                updateCallback: () => setState(() {}),
+                updateCallback: () => safeSetState(() {}),
                 child: const NavMenuLeftWidget(
                   index: 2,
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10),
                   child: Container(
-                    width: 100.0,
+                    width: 100,
                     height: double.infinity,
                     decoration: const BoxDecoration(),
                     child: Column(
@@ -77,7 +77,7 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                       children: [
                         wrapWithModel(
                           model: _model.navHeaderModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavHeaderWidget(
                             title: 'Edit Cell',
                           ),
@@ -87,20 +87,20 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.circular(30.0),
+                            borderRadius: BorderRadius.circular(30),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(25.0),
+                            padding: const EdgeInsets.all(25),
                             child: Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(20),
                                 shape: BoxShape.rectangle,
                                 border: Border.all(
                                   color: const Color(0xFFECECEC),
-                                  width: 1.0,
+                                  width: 1,
                                 ),
                               ),
                               child: Column(
@@ -109,7 +109,7 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.all(20.0),
+                                    padding: const EdgeInsets.all(20),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -119,8 +119,8 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                             autovalidateMode:
                                                 AutovalidateMode.disabled,
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -1.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(-1, 0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -129,15 +129,15 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 20.0),
+                                                            .fromSTEB(
+                                                                0, 0, 0, 20),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
                                                         Container(
-                                                          width: 150.0,
-                                                          height: 40.0,
+                                                          width: 150,
+                                                          height: 40,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -147,7 +147,7 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    -1.0, 0.0),
+                                                                    -1, 0),
                                                             child: Text(
                                                               'Cell Name *',
                                                               style: FlutterFlowTheme
@@ -159,13 +159,13 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                                     letterSpacing:
                                                                         0.0,
                                                                     lineHeight:
-                                                                        2.0,
+                                                                        2,
                                                                   ),
                                                             ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 500.0,
+                                                          width: 500,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -213,12 +213,12 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .alternate,
-                                                                    width: 1.0,
+                                                                    width: 1,
                                                                   ),
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              20.0),
+                                                                              20),
                                                                 ),
                                                                 focusedBorder:
                                                                     OutlineInputBorder(
@@ -227,12 +227,12 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary,
-                                                                    width: 1.0,
+                                                                    width: 1,
                                                                   ),
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              20.0),
+                                                                              20),
                                                                 ),
                                                                 errorBorder:
                                                                     OutlineInputBorder(
@@ -241,12 +241,12 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .error,
-                                                                    width: 1.0,
+                                                                    width: 1,
                                                                   ),
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              20.0),
+                                                                              20),
                                                                 ),
                                                                 focusedErrorBorder:
                                                                     OutlineInputBorder(
@@ -255,12 +255,12 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .error,
-                                                                    width: 1.0,
+                                                                    width: 1,
                                                                   ),
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              20.0),
+                                                                              20),
                                                                 ),
                                                               ),
                                                               style: FlutterFlowTheme
@@ -285,15 +285,15 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 20.0),
+                                                            .fromSTEB(
+                                                                0, 0, 0, 20),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
                                                         Container(
-                                                          width: 150.0,
-                                                          height: 40.0,
+                                                          width: 150,
+                                                          height: 40,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -303,7 +303,7 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    -1.0, 0.0),
+                                                                    -1, 0),
                                                             child: Text(
                                                               'Color Code *',
                                                               style: FlutterFlowTheme
@@ -315,7 +315,7 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                                     letterSpacing:
                                                                         0.0,
                                                                     lineHeight:
-                                                                        2.0,
+                                                                        2,
                                                                   ),
                                                             ),
                                                           ),
@@ -383,16 +383,17 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                                       .only(
                                                                 bottomLeft: Radius
                                                                     .circular(
-                                                                        0.0),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        0.0),
+                                                                        0),
+                                                                bottomRight:
+                                                                    Radius
+                                                                        .circular(
+                                                                            0),
                                                                 topLeft: Radius
                                                                     .circular(
-                                                                        0.0),
+                                                                        0),
                                                                 topRight: Radius
                                                                     .circular(
-                                                                        0.0),
+                                                                        0),
                                                               ),
                                                               border:
                                                                   Border.all(
@@ -404,10 +405,10 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                             child: Padding(
                                                               padding:
                                                                   const EdgeInsets
-                                                                      .all(5.0),
+                                                                      .all(5),
                                                               child: Container(
-                                                                width: 40.0,
-                                                                height: 20.0,
+                                                                width: 40,
+                                                                height: 20,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: _model
@@ -425,15 +426,15 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 20.0),
+                                                            .fromSTEB(
+                                                                0, 0, 0, 20),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
                                                         Container(
-                                                          width: 150.0,
-                                                          height: 40.0,
+                                                          width: 150,
+                                                          height: 40,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -443,7 +444,7 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    -1.0, 0.0),
+                                                                    -1, 0),
                                                             child: Text(
                                                               'Status',
                                                               style: FlutterFlowTheme
@@ -455,14 +456,14 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                                     letterSpacing:
                                                                         0.0,
                                                                     lineHeight:
-                                                                        2.0,
+                                                                        2,
                                                                   ),
                                                             ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 500.0,
-                                                          height: 40.0,
+                                                          width: 500,
+                                                          height: 40,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -471,14 +472,14 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                           ),
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  -1.0, 0.0),
+                                                                  -1, 0),
                                                           child:
                                                               Switch.adaptive(
                                                             value: _model
                                                                 .switchValue!,
                                                             onChanged:
                                                                 (newValue) async {
-                                                              setState(() =>
+                                                              safeSetState(() =>
                                                                   _model.switchValue =
                                                                       newValue);
                                                             },
@@ -505,19 +506,18 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                     children: [
                                       Expanded(
                                         child: Container(
-                                          width: 100.0,
+                                          width: 100,
                                           decoration: const BoxDecoration(
                                             color: Color(0xFFF7F7F7),
                                             borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20.0),
-                                              bottomRight:
-                                                  Radius.circular(20.0),
-                                              topLeft: Radius.circular(0.0),
-                                              topRight: Radius.circular(0.0),
+                                              bottomLeft: Radius.circular(20),
+                                              bottomRight: Radius.circular(20),
+                                              topLeft: Radius.circular(0),
+                                              topRight: Radius.circular(0),
                                             ),
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(20.0),
+                                            padding: const EdgeInsets.all(20),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -525,8 +525,7 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 15.0, 0.0),
+                                                      .fromSTEB(0, 0, 15, 0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
                                                       if (_model.formKey
@@ -558,21 +557,15 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                     },
                                                     text: 'Save',
                                                     options: FFButtonOptions(
-                                                      height: 40.0,
+                                                      height: 40,
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24.0,
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0),
+                                                                  24, 0, 24, 0),
                                                       iconPadding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  0, 0, 0, 0),
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -589,43 +582,36 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                      elevation: 0.0,
+                                                      elevation: 0,
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              20.0),
+                                                              20),
                                                     ),
                                                   ),
                                                 ),
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 15.0, 0.0),
+                                                      .fromSTEB(0, 0, 15, 0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
                                                       context.safePop();
                                                     },
                                                     text: 'Cancel',
                                                     options: FFButtonOptions(
-                                                      height: 40.0,
+                                                      height: 40,
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24.0,
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0),
+                                                                  24, 0, 24, 0),
                                                       iconPadding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  0, 0, 0, 0),
                                                       color: const Color(0xFFD2D5D8),
                                                       textStyle:
                                                           FlutterFlowTheme.of(
@@ -639,15 +625,15 @@ class _EditCellWidgetState extends State<EditCellWidget> {
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                      elevation: 0.0,
+                                                      elevation: 0,
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              20.0),
+                                                              20),
                                                     ),
                                                   ),
                                                 ),
