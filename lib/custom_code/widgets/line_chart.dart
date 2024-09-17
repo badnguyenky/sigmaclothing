@@ -109,7 +109,7 @@ class _LineChartState extends State<LineChart> {
           interactiveTooltip: InteractiveTooltip(enable: true)),
       primaryYAxis: NumericAxis(
         minimum: 0,
-        maximum: maxYValue,
+        maximum: maxYValue + 1,
         interval: 10,
         interactiveTooltip: InteractiveTooltip(enable: true),
       ),

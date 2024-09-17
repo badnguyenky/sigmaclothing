@@ -18,36 +18,66 @@ class ColumnChart extends StatefulWidget {
     this.height,
     required this.chartData,
     required this.completedColumnColor,
+    required this.incompleteColumnColor,
+    required this.chartBackgroundColor,
+    required this.chartBorderColor,
   });
 
   final double? width;
   final double? height;
   final List<ColumnChartDataStruct> chartData;
   final Color completedColumnColor;
+  final Color incompleteColumnColor;
+  final Color chartBackgroundColor;
+  final Color chartBorderColor;
 
   @override
   State<ColumnChart> createState() => _ColumnChartState();
 }
 
 class _ColumnChartState extends State<ColumnChart> {
+  double getMaxYValue() {
+    // Find the maximum y value from both y1Value and y2Value in the chartData
+    double maxY1Value = widget.chartData
+        .map((data) => data.y1Value.toDouble())
+        .reduce((a, b) => a > b ? a : b);
+    double maxY2Value = widget.chartData
+        .map((data) => data.y2Value.toDouble())
+        .reduce((a, b) => a > b ? a : b);
+    return maxY1Value > maxY2Value ? maxY1Value : maxY2Value;
+  }
+
   @override
   Widget build(BuildContext context) {
+    double maxYValue = getMaxYValue();
     return SfCartesianChart(
+      plotAreaBackgroundColor: widget.chartBackgroundColor,
+      plotAreaBorderWidth: 1,
+      plotAreaBorderColor: widget.chartBorderColor,
       primaryXAxis: CategoryAxis(),
       primaryYAxis: NumericAxis(
         minimum: 0,
-        maximum: 1.2,
-        interval: 0.2,
+        maximum: maxYValue + 1,
+        interval: 1,
       ),
       series: <CartesianSeries<ColumnChartDataStruct, String>>[
         ColumnSeries<ColumnChartDataStruct, String>(
           dataSource: widget.chartData,
           xValueMapper: (ColumnChartDataStruct data, _) => data.xValue,
-          yValueMapper: (ColumnChartDataStruct data, _) => data.yValue,
+          yValueMapper: (ColumnChartDataStruct data, _) => data.y1Value,
           dataLabelSettings: DataLabelSettings(isVisible: true),
           // Customize the color and elevation (shadow)
           borderRadius: BorderRadius.all(Radius.circular(3)),
           color: widget.completedColumnColor,
+        ),
+        ColumnSeries<ColumnChartDataStruct, String>(
+          dataSource: widget.chartData,
+          xValueMapper: (ColumnChartDataStruct data, _) => data.xValue,
+          yValueMapper: (ColumnChartDataStruct data, _) => data.y2Value,
+          dataLabelSettings: DataLabelSettings(isVisible: true),
+          // Customize the color and elevation (shadow)
+          borderRadius: BorderRadius.all(Radius.circular(3)),
+          color: widget.incompleteColumnColor,
         ),
       ],
     );

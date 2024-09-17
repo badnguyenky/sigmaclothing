@@ -5,7 +5,7 @@
 
 
     <application
-        android:label="Factor App"
+        android:label="Sigma Clothing"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
@@ -45,7 +45,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="factorapp" android:host="factorapp.com" />
+                <data android:scheme="sigmaclothing" android:host="sigmaclothing.com" />
             </intent-filter>
 
         </activity>

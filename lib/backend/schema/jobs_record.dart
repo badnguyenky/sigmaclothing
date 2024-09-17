@@ -45,16 +45,6 @@ class JobsRecord extends FirestoreRecord {
   int get targetPerHour => _targetPerHour ?? 0;
   bool hasTargetPerHour() => _targetPerHour != null;
 
-  // "created_at" field.
-  DateTime? _createdAt;
-  DateTime? get createdAt => _createdAt;
-  bool hasCreatedAt() => _createdAt != null;
-
-  // "updated_at" field.
-  DateTime? _updatedAt;
-  DateTime? get updatedAt => _updatedAt;
-  bool hasUpdatedAt() => _updatedAt != null;
-
   // "status" field.
   bool? _status;
   bool get status => _status ?? false;
@@ -75,6 +65,16 @@ class JobsRecord extends FirestoreRecord {
   bool get completionStatus => _completionStatus ?? false;
   bool hasCompletionStatus() => _completionStatus != null;
 
+  // "created_at" field.
+  DateTime? _createdAt;
+  DateTime? get createdAt => _createdAt;
+  bool hasCreatedAt() => _createdAt != null;
+
+  // "updated_at" field.
+  DateTime? _updatedAt;
+  DateTime? get updatedAt => _updatedAt;
+  bool hasUpdatedAt() => _updatedAt != null;
+
   void _initializeFields() {
     _id = castToType<int>(snapshotData['id']);
     _jobName = snapshotData['job_name'] as String?;
@@ -82,8 +82,6 @@ class JobsRecord extends FirestoreRecord {
     _cellRef = snapshotData['cell_ref'] as DocumentReference?;
     _targetPerDay = castToType<int>(snapshotData['target_per_day']);
     _targetPerHour = castToType<int>(snapshotData['target_per_hour']);
-    _createdAt = snapshotData['created_at'] as DateTime?;
-    _updatedAt = snapshotData['updated_at'] as DateTime?;
     _status = snapshotData['status'] as bool?;
     _completionTime = snapshotData['completion_time'] as DateTime?;
     _scores = getStructList(
@@ -91,6 +89,8 @@ class JobsRecord extends FirestoreRecord {
       ScoreStruct.fromMap,
     );
     _completionStatus = snapshotData['completionStatus'] as bool?;
+    _createdAt = snapshotData['created_at'] as DateTime?;
+    _updatedAt = snapshotData['updated_at'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -133,11 +133,11 @@ Map<String, dynamic> createJobsRecordData({
   DocumentReference? cellRef,
   int? targetPerDay,
   int? targetPerHour,
-  DateTime? createdAt,
-  DateTime? updatedAt,
   bool? status,
   DateTime? completionTime,
   bool? completionStatus,
+  DateTime? createdAt,
+  DateTime? updatedAt,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -147,11 +147,11 @@ Map<String, dynamic> createJobsRecordData({
       'cell_ref': cellRef,
       'target_per_day': targetPerDay,
       'target_per_hour': targetPerHour,
-      'created_at': createdAt,
-      'updated_at': updatedAt,
       'status': status,
       'completion_time': completionTime,
       'completionStatus': completionStatus,
+      'created_at': createdAt,
+      'updated_at': updatedAt,
     }.withoutNulls,
   );
 
@@ -170,12 +170,12 @@ class JobsRecordDocumentEquality implements Equality<JobsRecord> {
         e1?.cellRef == e2?.cellRef &&
         e1?.targetPerDay == e2?.targetPerDay &&
         e1?.targetPerHour == e2?.targetPerHour &&
-        e1?.createdAt == e2?.createdAt &&
-        e1?.updatedAt == e2?.updatedAt &&
         e1?.status == e2?.status &&
         e1?.completionTime == e2?.completionTime &&
         listEquality.equals(e1?.scores, e2?.scores) &&
-        e1?.completionStatus == e2?.completionStatus;
+        e1?.completionStatus == e2?.completionStatus &&
+        e1?.createdAt == e2?.createdAt &&
+        e1?.updatedAt == e2?.updatedAt;
   }
 
   @override
@@ -186,12 +186,12 @@ class JobsRecordDocumentEquality implements Equality<JobsRecord> {
         e?.cellRef,
         e?.targetPerDay,
         e?.targetPerHour,
-        e?.createdAt,
-        e?.updatedAt,
         e?.status,
         e?.completionTime,
         e?.scores,
-        e?.completionStatus
+        e?.completionStatus,
+        e?.createdAt,
+        e?.updatedAt
       ]);
 
   @override

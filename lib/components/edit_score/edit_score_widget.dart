@@ -71,20 +71,20 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 550,
+      width: 550.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         boxShadow: const [
           BoxShadow(
-            blurRadius: 4,
+            blurRadius: 4.0,
             color: Color(0x33000000),
             offset: Offset(
-              0,
-              2,
+              0.0,
+              2.0,
             ),
           )
         ],
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.0),
       ),
       child: Form(
         key: _model.formKey,
@@ -94,19 +94,19 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
               child: Text(
                 'EDIT',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Poppins',
-                      fontSize: 20,
+                      fontSize: 20.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.bold,
                     ),
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -120,17 +120,17 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                       'TIME',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Poppins',
-                            fontSize: 16,
+                            fontSize: 16.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                           ),
                     ),
                     Container(
                       width: double.infinity,
-                      height: 50,
+                      height: 50.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.0),
                         border: Border.all(
                           color: FlutterFlowTheme.of(context).alternate,
                         ),
@@ -141,8 +141,8 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                         children: [
                           Expanded(
                             child: Padding(
-                              padding:
-                                  const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
                               child: TextFormField(
                                 controller: _model.txtScoreTimeTextController,
                                 focusNode: _model.txtScoreTimeFocusNode,
@@ -169,13 +169,13 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                           ),
                           FlutterFlowIconButton(
                             borderColor: Colors.transparent,
-                            borderRadius: 30,
-                            borderWidth: 0,
-                            buttonSize: 40,
+                            borderRadius: 30.0,
+                            borderWidth: 0.0,
+                            buttonSize: 40.0,
                             icon: Icon(
                               Icons.access_time_outlined,
                               color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24,
+                              size: 24.0,
                             ),
                             onPressed: () async {
                               final datePickedTime = await showTimePicker(
@@ -196,7 +196,7 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                                             .headlineLarge
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 32,
+                                              fontSize: 32.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -213,7 +213,7 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                                     actionButtonForegroundColor:
                                         FlutterFlowTheme.of(context)
                                             .primaryText,
-                                    iconSize: 24,
+                                    iconSize: 24.0,
                                   );
                                 },
                               );
@@ -239,12 +239,12 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                         ],
                       ),
                     ),
-                  ].divide(const SizedBox(height: 8)),
+                  ].divide(const SizedBox(height: 8.0)),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -258,7 +258,7 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                       'TARGET REACHED',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Poppins',
-                            fontSize: 16,
+                            fontSize: 16.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                           ),
@@ -285,36 +285,36 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).alternate,
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(20.0),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).primary,
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(20.0),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).error,
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(20.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).error,
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(20.0),
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               letterSpacing: 0.0,
-                              lineHeight: 1,
+                              lineHeight: 1.0,
                             ),
                         keyboardType: TextInputType.number,
                         validator: _model
@@ -325,12 +325,12 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                         ],
                       ),
                     ),
-                  ].divide(const SizedBox(height: 8)),
+                  ].divide(const SizedBox(height: 8.0)),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -344,7 +344,7 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                       'PERFORMANCE',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Poppins',
-                            fontSize: 16,
+                            fontSize: 16.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                           ),
@@ -365,7 +365,7 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                       onChanged: (val) =>
                           safeSetState(() => _model.dropDownValue = val),
                       width: double.infinity,
-                      height: 50,
+                      height: 50.0,
                       textStyle:
                           FlutterFlowTheme.of(context).bodyMedium.override(
                                 fontFamily: 'Poppins',
@@ -374,21 +374,22 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                       icon: Icon(
                         Icons.keyboard_arrow_down_rounded,
                         color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 24,
+                        size: 24.0,
                       ),
                       fillColor:
                           FlutterFlowTheme.of(context).secondaryBackground,
-                      elevation: 2,
+                      elevation: 2.0,
                       borderColor: FlutterFlowTheme.of(context).alternate,
-                      borderWidth: 1,
-                      borderRadius: 20,
-                      margin: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                      borderWidth: 1.0,
+                      borderRadius: 20.0,
+                      margin:
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       hidesUnderline: true,
                       isOverButton: false,
                       isSearchable: false,
                       isMultiSelect: false,
                     ),
-                  ].divide(const SizedBox(height: 8)),
+                  ].divide(const SizedBox(height: 8.0)),
                 ),
               ),
             ),
@@ -397,14 +398,14 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
               decoration: const BoxDecoration(
                 color: Color(0xFFF7F7F7),
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(16),
-                  bottomRight: Radius.circular(16),
-                  topLeft: Radius.circular(0),
-                  topRight: Radius.circular(0),
+                  bottomLeft: Radius.circular(16.0),
+                  bottomRight: Radius.circular(16.0),
+                  topLeft: Radius.circular(0.0),
+                  topRight: Radius.circular(0.0),
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -415,9 +416,11 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                       },
                       text: 'Cancel',
                       options: FFButtonOptions(
-                        height: 40,
-                        padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        height: 40.0,
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: const Color(0xFFD2D5D8),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
@@ -425,12 +428,12 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                                   color: const Color(0xFF333333),
                                   letterSpacing: 0.0,
                                 ),
-                        elevation: 0,
+                        elevation: 0.0,
                         borderSide: const BorderSide(
                           color: Colors.transparent,
-                          width: 1,
+                          width: 1.0,
                         ),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                     ),
                     FFButtonWidget(
@@ -475,9 +478,11 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                       },
                       text: 'Save',
                       options: FFButtonOptions(
-                        height: 40,
-                        padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        height: 40.0,
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
@@ -485,19 +490,19 @@ class _EditScoreWidgetState extends State<EditScoreWidget> {
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),
-                        elevation: 0,
+                        elevation: 0.0,
                         borderSide: const BorderSide(
                           color: Colors.transparent,
-                          width: 1,
+                          width: 1.0,
                         ),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                     ),
-                  ].divide(const SizedBox(width: 16)).around(const SizedBox(width: 16)),
+                  ].divide(const SizedBox(width: 16.0)).around(const SizedBox(width: 16.0)),
                 ),
               ),
             ),
-          ].divide(const SizedBox(height: 16)),
+          ].divide(const SizedBox(height: 16.0)),
         ),
       ),
     );

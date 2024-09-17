@@ -5,13 +5,13 @@ Future initFirebase() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: const FirebaseOptions(
-            apiKey: "AIzaSyBFah3AChco4NmnhFZ2ICC9jRbU_WW0KZE",
-            authDomain: "factorapp-5cc7a.firebaseapp.com",
-            projectId: "factorapp-5cc7a",
-            storageBucket: "factorapp-5cc7a.appspot.com",
-            messagingSenderId: "502449802235",
-            appId: "1:502449802235:web:dc72a9061e81374263d95e",
-            measurementId: "G-7QH4W7Z6WN"));
+            apiKey: "AIzaSyArvKu1hs3gQR3-oE_bTsrg7Y4bosDjgT4",
+            authDomain: "sigmaclothing-c180e.firebaseapp.com",
+            projectId: "sigmaclothing-c180e",
+            storageBucket: "sigmaclothing-c180e.appspot.com",
+            messagingSenderId: "949270783530",
+            appId: "1:949270783530:web:df4092e8bdafc99e384553",
+            measurementId: "G-0R7NT9X6QP"));
   } else {
     await Firebase.initializeApp();
   }

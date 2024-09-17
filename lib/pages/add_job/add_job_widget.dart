@@ -29,9 +29,6 @@ class _AddJobWidgetState extends State<AddJobWidget> {
     super.initState();
     _model = createModel(context, () => AddJobModel());
 
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {});
-
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -70,13 +67,15 @@ class _AddJobWidgetState extends State<AddJobWidget> {
               wrapWithModel(
                 model: _model.navMenuLeftModel,
                 updateCallback: () => safeSetState(() {}),
-                child: const NavMenuLeftWidget(),
+                child: const NavMenuLeftWidget(
+                  index: 3,
+                ),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10.0),
                   child: Container(
-                    width: 100,
+                    width: 100.0,
                     height: double.infinity,
                     decoration: const BoxDecoration(),
                     child: Column(
@@ -94,20 +93,20 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(30.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(25),
+                            padding: const EdgeInsets.all(25.0),
                             child: Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(20.0),
                                 shape: BoxShape.rectangle,
                                 border: Border.all(
                                   color: const Color(0xFFECECEC),
-                                  width: 1,
+                                  width: 1.0,
                                 ),
                               ),
                               child: Column(
@@ -116,9 +115,9 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(-1, 0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(20),
+                                      padding: const EdgeInsets.all(20.0),
                                       child: Form(
                                         key: _model.formKey,
                                         autovalidateMode:
@@ -130,13 +129,14 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                           children: [
                                             Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 20),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 20.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Container(
-                                                    width: 150,
-                                                    height: 40,
+                                                    width: 150.0,
+                                                    height: 40.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -145,25 +145,24 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                     child: Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              -1, 0),
+                                                              -1.0, 0.0),
                                                       child: Text(
                                                         'Job Name *',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  lineHeight: 2,
-                                                                ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              lineHeight: 2.0,
+                                                            ),
                                                       ),
                                                     ),
                                                   ),
                                                   Container(
-                                                    width: 500,
+                                                    width: 500.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -173,7 +172,10 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .textController1,
@@ -211,12 +213,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .alternate,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
@@ -225,12 +227,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primary,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
@@ -239,12 +241,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
@@ -253,12 +255,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                         ),
                                                         style:
@@ -283,13 +285,14 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                             ),
                                             Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 20),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 20.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Container(
-                                                    width: 150,
-                                                    height: 40,
+                                                    width: 150.0,
+                                                    height: 40.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -298,25 +301,24 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                     child: Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              -1, 0),
+                                                              -1.0, 0.0),
                                                       child: Text(
                                                         'Style No *',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  lineHeight: 2,
-                                                                ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              lineHeight: 2.0,
+                                                            ),
                                                       ),
                                                     ),
                                                   ),
                                                   Container(
-                                                    width: 500,
+                                                    width: 500.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -326,7 +328,10 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .textController2,
@@ -364,12 +369,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .alternate,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
@@ -378,12 +383,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primary,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
@@ -392,12 +397,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
@@ -406,12 +411,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                         ),
                                                         style:
@@ -436,13 +441,14 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                             ),
                                             Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 20),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 20.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Container(
-                                                    width: 150,
-                                                    height: 40,
+                                                    width: 150.0,
+                                                    height: 40.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -451,26 +457,25 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                     child: Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              -1, 0),
+                                                              -1.0, 0.0),
                                                       child: Text(
                                                         'Cell',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  lineHeight: 2,
-                                                                ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              lineHeight: 2.0,
+                                                            ),
                                                       ),
                                                     ),
                                                   ),
                                                   Container(
-                                                    width: 500,
-                                                    height: 50,
+                                                    width: 500.0,
+                                                    height: 50.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -480,7 +485,10 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: FutureBuilder<
                                                           List<CellsRecord>>(
                                                         future:
@@ -504,14 +512,14 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               .hasData) {
                                                             return Center(
                                                               child: SizedBox(
-                                                                width: 50,
-                                                                height: 50,
+                                                                width: 50.0,
+                                                                height: 50.0,
                                                                 child:
                                                                     SpinKitCircle(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
-                                                                  size: 50,
+                                                                  size: 50.0,
                                                                 ),
                                                               ),
                                                             );
@@ -549,8 +557,8 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               safeSetState(
                                                                   () {});
                                                             },
-                                                            width: 500,
-                                                            height: 50,
+                                                            width: 500.0,
+                                                            height: 50.0,
                                                             searchHintTextStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
@@ -591,25 +599,25 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .secondaryText,
-                                                              size: 24,
+                                                              size: 24.0,
                                                             ),
                                                             fillColor: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryBackground,
-                                                            elevation: 2,
+                                                            elevation: 2.0,
                                                             borderColor:
                                                                 FlutterFlowTheme.of(
                                                                         context)
                                                                     .alternate,
-                                                            borderWidth: 1,
-                                                            borderRadius: 20,
+                                                            borderWidth: 1.0,
+                                                            borderRadius: 20.0,
                                                             margin:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        16,
-                                                                        0,
-                                                                        16,
-                                                                        0),
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
                                                             hidesUnderline:
                                                                 true,
                                                             isOverButton: false,
@@ -626,13 +634,14 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                             ),
                                             Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 20),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 20.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Container(
-                                                    width: 150,
-                                                    height: 40,
+                                                    width: 150.0,
+                                                    height: 40.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -641,25 +650,24 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                     child: Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              -1, 0),
+                                                              -1.0, 0.0),
                                                       child: Text(
                                                         'Target per hour*',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  lineHeight: 2,
-                                                                ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              lineHeight: 2.0,
+                                                            ),
                                                       ),
                                                     ),
                                                   ),
                                                   Container(
-                                                    width: 500,
+                                                    width: 500.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -669,7 +677,10 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .textController3,
@@ -708,12 +719,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .alternate,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
@@ -722,12 +733,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primary,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
@@ -736,12 +747,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
@@ -750,12 +761,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                         ),
                                                         style:
@@ -783,13 +794,14 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                             ),
                                             Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 20),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 20.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Container(
-                                                    width: 150,
-                                                    height: 40,
+                                                    width: 150.0,
+                                                    height: 40.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -798,25 +810,24 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                     child: Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              -1, 0),
+                                                              -1.0, 0.0),
                                                       child: Text(
                                                         'Target per day*',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  lineHeight: 2,
-                                                                ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              lineHeight: 2.0,
+                                                            ),
                                                       ),
                                                     ),
                                                   ),
                                                   Container(
-                                                    width: 500,
+                                                    width: 500.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -826,7 +837,10 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .textController4,
@@ -865,12 +879,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .alternate,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
@@ -879,12 +893,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primary,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
@@ -893,12 +907,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
@@ -907,12 +921,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20),
+                                                                        20.0),
                                                           ),
                                                         ),
                                                         style:
@@ -940,13 +954,14 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                             ),
                                             Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 20),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 20.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Container(
-                                                    width: 150,
-                                                    height: 40,
+                                                    width: 150.0,
+                                                    height: 40.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -955,26 +970,25 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                     child: Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              -1, 0),
+                                                              -1.0, 0.0),
                                                       child: Text(
                                                         'Status',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  lineHeight: 2,
-                                                                ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              lineHeight: 2.0,
+                                                            ),
                                                       ),
                                                     ),
                                                   ),
                                                   Container(
-                                                    width: 500,
-                                                    height: 40,
+                                                    width: 500.0,
+                                                    height: 40.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -982,7 +996,7 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                     ),
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            -1, 0),
+                                                            -1.0, 0.0),
                                                     child: Switch.adaptive(
                                                       value:
                                                           _model.switchValue!,
@@ -1011,14 +1025,14 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                     decoration: const BoxDecoration(
                                       color: Color(0xFFF7F7F7),
                                       borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(20),
-                                        bottomRight: Radius.circular(20),
-                                        topLeft: Radius.circular(0),
-                                        topRight: Radius.circular(0),
+                                        bottomLeft: Radius.circular(20.0),
+                                        bottomRight: Radius.circular(20.0),
+                                        topLeft: Radius.circular(0.0),
+                                        topRight: Radius.circular(0.0),
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(20),
+                                      padding: const EdgeInsets.all(20.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -1027,7 +1041,7 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 15, 0),
+                                                    0.0, 0.0, 15.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 var shouldSetState = false;
@@ -1118,6 +1132,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                         updatedAt:
                                                             getCurrentTimestamp,
                                                       ));
+
+                                                  await _model.cell!.reference
+                                                      .update(
+                                                          createCellsRecordData(
+                                                    isHaveJob: true,
+                                                  ));
                                                   context.safePop();
                                                 }
 
@@ -1127,12 +1147,14 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                               },
                                               text: 'Save',
                                               options: FFButtonOptions(
-                                                height: 40,
+                                                height: 40.0,
                                                 padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(24, 0, 24, 0),
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
                                                     const EdgeInsetsDirectional
-                                                        .fromSTEB(0, 0, 0, 0),
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
@@ -1144,13 +1166,13 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                           color: Colors.white,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                elevation: 0,
+                                                elevation: 0.0,
                                                 borderSide: const BorderSide(
                                                   color: Colors.transparent,
-                                                  width: 1,
+                                                  width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(20),
+                                                    BorderRadius.circular(20.0),
                                               ),
                                             ),
                                           ),
@@ -1160,11 +1182,12 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                             },
                                             text: 'Cancel',
                                             options: FFButtonOptions(
-                                              height: 40,
+                                              height: 40.0,
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(24, 0, 24, 0),
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 24.0, 0.0),
                                               iconPadding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 0),
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color: const Color(0xFFD2D5D8),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
@@ -1174,13 +1197,13 @@ class _AddJobWidgetState extends State<AddJobWidget> {
                                                         color: Colors.white,
                                                         letterSpacing: 0.0,
                                                       ),
-                                              elevation: 0,
+                                              elevation: 0.0,
                                               borderSide: const BorderSide(
                                                 color: Colors.transparent,
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(20),
+                                                  BorderRadius.circular(20.0),
                                             ),
                                           ),
                                         ],

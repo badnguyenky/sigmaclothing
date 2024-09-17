@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "502449802235",
-    "project_id": "factorapp-5cc7a",
-    "storage_bucket": "factorapp-5cc7a.appspot.com"
+    "project_number": "949270783530",
+    "project_id": "sigmaclothing-c180e",
+    "storage_bucket": "sigmaclothing-c180e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:502449802235:android:277fd4da24e8087163d95e",
+        "mobilesdk_app_id": "1:949270783530:android:cdc3d8b12699bf24384553",
         "android_client_info": {
           "package_name": "com.mycompany.factorapp"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyACIRqVOTBgD9RWgTlzBUh-EZ-zYHQaWBI"
+          "current_key": "AIzaSyCMIrO1GGb8DQeExDi6rGVR2PF-x881F38"
         }
       ],
       "services": {

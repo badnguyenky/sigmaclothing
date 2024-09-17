@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 class ScoreBoardModel extends FlutterFlowModel<ScoreBoardWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Firestore Query - Query a collection] action in ScoreBoard widget.
+  PopupRecord? popup;
   // Model for NavMenuLeft component.
   late NavMenuLeftModel navMenuLeftModel;
   // Model for NavHeader component.

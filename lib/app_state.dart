@@ -169,14 +169,14 @@ class FFAppState extends ChangeNotifier {
   }
 
   List<ColumnChartDataStruct> _columnChartData = [
-    ColumnChartDataStruct.fromSerializableMap(
-        jsonDecode('{\"xValue\":\"CELL 1\",\"yValue\":\"1\"}')),
-    ColumnChartDataStruct.fromSerializableMap(
-        jsonDecode('{\"xValue\":\"CELL 2\",\"yValue\":\"1\"}')),
-    ColumnChartDataStruct.fromSerializableMap(
-        jsonDecode('{\"xValue\":\"CELL 3\",\"yValue\":\"1\"}')),
-    ColumnChartDataStruct.fromSerializableMap(
-        jsonDecode('{\"xValue\":\"CELL 4\",\"yValue\":\"1\"}'))
+    ColumnChartDataStruct.fromSerializableMap(jsonDecode(
+        '{\"xValue\":\"CELL 1\",\"y1Value\":\"1\",\"y2Value\":\"0\"}')),
+    ColumnChartDataStruct.fromSerializableMap(jsonDecode(
+        '{\"xValue\":\"CELL 2\",\"y1Value\":\"1\",\"y2Value\":\"0\"}')),
+    ColumnChartDataStruct.fromSerializableMap(jsonDecode(
+        '{\"xValue\":\"CELL 3\",\"y1Value\":\"1\",\"y2Value\":\"0\"}')),
+    ColumnChartDataStruct.fromSerializableMap(jsonDecode(
+        '{\"xValue\":\"CELL 4\",\"y1Value\":\"1\",\"y2Value\":\"0\"}'))
   ];
   List<ColumnChartDataStruct> get columnChartData => _columnChartData;
   set columnChartData(List<ColumnChartDataStruct> value) {

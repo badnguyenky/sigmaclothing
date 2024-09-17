@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class FactorAppFirebaseUser extends BaseAuthUser {
-  FactorAppFirebaseUser(this.user);
+class SigmaClothingFirebaseUser extends BaseAuthUser {
+  SigmaClothingFirebaseUser(this.user);
   User? user;
   @override
   bool get loggedIn => user != null;
@@ -55,17 +55,17 @@ class FactorAppFirebaseUser extends BaseAuthUser {
   static BaseAuthUser fromUserCredential(UserCredential userCredential) =>
       fromFirebaseUser(userCredential.user);
   static BaseAuthUser fromFirebaseUser(User? user) =>
-      FactorAppFirebaseUser(user);
+      SigmaClothingFirebaseUser(user);
 }
 
-Stream<BaseAuthUser> factorAppFirebaseUserStream() => FirebaseAuth.instance
+Stream<BaseAuthUser> sigmaClothingFirebaseUserStream() => FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
         .map<BaseAuthUser>(
       (user) {
-        currentUser = FactorAppFirebaseUser(user);
+        currentUser = SigmaClothingFirebaseUser(user);
         return currentUser!;
       },
     );

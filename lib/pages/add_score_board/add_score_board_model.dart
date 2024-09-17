@@ -27,9 +27,6 @@ class AddScoreBoardModel extends FlutterFlowModel<AddScoreBoardWidget> {
   late NavMenuLeftModel navMenuLeftModel;
   // Model for NavHeader component.
   late NavHeaderModel navHeaderModel;
-  // State field(s) for PaginatedDataTable widget.
-  final paginatedDataTableController =
-      FlutterFlowDataTableController<ScoreStruct>();
   // State field(s) for txtScoreTime widget.
   FocusNode? txtScoreTimeFocusNode;
   TextEditingController? txtScoreTimeTextController;
@@ -51,6 +48,9 @@ class AddScoreBoardModel extends FlutterFlowModel<AddScoreBoardWidget> {
   DateTime? datePicked2;
   // State field(s) for Switch widget.
   bool? switchValue;
+  // State field(s) for PaginatedDataTable widget.
+  final paginatedDataTableController =
+      FlutterFlowDataTableController<ScoreStruct>();
 
   @override
   void initState(BuildContext context) {
@@ -62,7 +62,6 @@ class AddScoreBoardModel extends FlutterFlowModel<AddScoreBoardWidget> {
   void dispose() {
     navMenuLeftModel.dispose();
     navHeaderModel.dispose();
-    paginatedDataTableController.dispose();
     txtScoreTimeFocusNode?.dispose();
     txtScoreTimeTextController?.dispose();
 
@@ -71,5 +70,7 @@ class AddScoreBoardModel extends FlutterFlowModel<AddScoreBoardWidget> {
 
     txtCompletionTimeFocusNode?.dispose();
     txtCompletionTimeTextController?.dispose();
+
+    paginatedDataTableController.dispose();
   }
 }

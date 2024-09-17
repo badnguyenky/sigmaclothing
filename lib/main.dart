@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-    userStream = factorAppFirebaseUserStream()
+    userStream = sigmaClothingFirebaseUserStream()
       ..listen((user) {
         _appStateNotifier.update(user);
       });

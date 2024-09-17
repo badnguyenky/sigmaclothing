@@ -18,10 +18,10 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
-    "serve": "firebase -P factorapp-5cc7a emulators:start --only functions",
-    "shell": "firebase -P factorapp-5cc7a functions:shell",
+    "serve": "firebase -P sigmaclothing-c180e emulators:start --only functions",
+    "shell": "firebase -P sigmaclothing-c180e functions:shell",
     "start": "npm run shell",
-    "logs": "firebase -P factorapp-5cc7a functions:log",
+    "logs": "firebase -P sigmaclothing-c180e functions:log",
     "compile": "cp ../../tsconfig.template.json ./tsconfig-compile.json && tsc --project tsconfig-compile.json"
   },
   "engines": {

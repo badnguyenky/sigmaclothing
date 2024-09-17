@@ -48,8 +48,8 @@ class _EmptyDataWidgetState extends State<EmptyDataWidget> {
       children: [
         Lottie.asset(
           'assets/lottie_animations/empty.json',
-          width: 200,
-          height: 200,
+          width: 200.0,
+          height: 200.0,
           fit: BoxFit.cover,
           animate: true,
         ),
@@ -57,7 +57,7 @@ class _EmptyDataWidgetState extends State<EmptyDataWidget> {
           widget.title,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Poppins',
-                fontSize: 20,
+                fontSize: 20.0,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.bold,
               ),

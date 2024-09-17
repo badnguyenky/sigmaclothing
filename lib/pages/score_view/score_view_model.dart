@@ -12,7 +12,10 @@ class ScoreViewModel extends FlutterFlowModel<ScoreViewWidget> {
   // Model for NavMenuLeft component.
   late NavMenuLeftModel navMenuLeftModel;
   // State field(s) for PaginatedDataTable widget.
-  final paginatedDataTableController =
+  final paginatedDataTableController1 =
+      FlutterFlowDataTableController<ScoreStruct>();
+  // State field(s) for PaginatedDataTable widget.
+  final paginatedDataTableController2 =
       FlutterFlowDataTableController<ScoreStruct>();
 
   @override
@@ -23,6 +26,7 @@ class ScoreViewModel extends FlutterFlowModel<ScoreViewWidget> {
   @override
   void dispose() {
     navMenuLeftModel.dispose();
-    paginatedDataTableController.dispose();
+    paginatedDataTableController1.dispose();
+    paginatedDataTableController2.dispose();
   }
 }

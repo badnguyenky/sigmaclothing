@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyBHW1wOjCVbkM1ZKK6h0gzEVYQAOSzvd6w</string>
+	<string>AIzaSyBvdxS9rsC4DXxxd0lbrdy_KbVDSiadJh8</string>
 	<key>GCM_SENDER_ID</key>
-	<string>502449802235</string>
+	<string>949270783530</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.mycompany.factorapp</string>
 	<key>PROJECT_ID</key>
-	<string>factorapp-5cc7a</string>
+	<string>sigmaclothing-c180e</string>
 	<key>STORAGE_BUCKET</key>
-	<string>factorapp-5cc7a.appspot.com</string>
+	<string>sigmaclothing-c180e.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:502449802235:ios:f12ad93514ee201163d95e</string>
+	<string>1:949270783530:ios:37bb74e7b462593d384553</string>
 </dict>
 </plist>

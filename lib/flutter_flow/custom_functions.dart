@@ -40,6 +40,51 @@ String scoreViewCalculation(
   return "";
 }
 
+List<ColumnChartDataStruct>? cellChartData(
+  List<JobsRecord> jobs,
+  List<CellsRecord> cells,
+) {
+  final Map<String, Map<String, int>> cellsMap = {};
+
+  // Initialize the cellsMap for each cell with 'completed' and 'incomplete' counters
+  for (var cell in cells) {
+    cellsMap[cell.cellName] = {'completed': 0, 'incomplete': 0};
+  }
+
+  // Iterate over the jobs and count the jobs for each cell
+  for (var job in jobs) {
+    // Assuming job.cellId corresponds to the cell's ID
+    CellsRecord assignedCell =
+        cells.firstWhere((cell) => cell.reference == job.cellRef);
+
+    if (assignedCell != null) {
+      final cellName = assignedCell.cellName;
+      if (job.completionStatus == true && job.completionTime != null) {
+        // Increment the completed jobs count for the cell
+        cellsMap[cellName]!['completed'] =
+            cellsMap[cellName]!['completed']! + 1;
+      } else {
+        // Increment the incomplete jobs count for the cell
+        cellsMap[cellName]!['incomplete'] =
+            cellsMap[cellName]!['incomplete']! + 1;
+      }
+    }
+  }
+
+  // Convert the cellsMap into ColumnChartDataStruct
+  List<ColumnChartDataStruct> chartData = [];
+
+  cellsMap.forEach((cellName, jobCount) {
+    chartData.add(ColumnChartDataStruct(
+      xValue: cellName, // Use the cell's name as the x-axis value
+      y1Value: jobCount['completed']!, // Number of completed jobs
+      y2Value: jobCount['incomplete']!, // Number of incomplete jobs
+    ));
+  });
+
+  return chartData;
+}
+
 List<JobsRecord> calculateLeaderboard(List<JobsRecord> jobs) {
   List<JobsRecord> result = [];
   jobs.sort((a, b) {
@@ -120,4 +165,76 @@ List<ChartDataStruct>? productionChartData(List<JobsRecord>? jobs) {
   });
 
   return chartData;
+}
+
+List<JobsRecord> sortJobs(
+  List<JobsRecord> listToSort,
+  bool isAsc,
+  int sortColumnIndex,
+) {
+  switch (sortColumnIndex) {
+    case 0:
+      listToSort.sort((a, b) => a.id.compareTo(b.id));
+      break;
+    case 1:
+      listToSort.sort((a, b) => a.jobName.compareTo(b.jobName));
+      break;
+    case 2:
+      listToSort.sort((a, b) => a.styleNo.compareTo(b.styleNo));
+      break;
+    case 4:
+      listToSort.sort((a, b) => a.targetPerDay.compareTo(b.targetPerDay));
+      break;
+    case 5:
+      listToSort.sort((a, b) => a.createdAt!.compareTo(b.createdAt!));
+      break;
+    case 6:
+      listToSort.sort((a, b) => a.updatedAt!.compareTo(b.updatedAt!));
+      break;
+    default:
+      break;
+  }
+  if (!isAsc) {
+    listToSort = listToSort.reversed.toList();
+  }
+  return listToSort;
+}
+
+List<CellsRecord> sortCells(
+  List<CellsRecord> listToSort,
+  bool isAsc,
+  int sortColumnIndex,
+) {
+  switch (sortColumnIndex) {
+    case 0:
+      listToSort.sort((a, b) => a.id.compareTo(b.id));
+      break;
+    case 1:
+      listToSort.sort((a, b) => a.cellName.compareTo(b.cellName));
+      break;
+    case 2:
+      listToSort.sort((a, b) => a.createdDate!.compareTo(b.createdDate!));
+      break;
+    case 3:
+      listToSort.sort((a, b) => a.updatedDate!.compareTo(b.updatedDate!));
+      break;
+    default:
+      break;
+  }
+  if (!isAsc) {
+    listToSort = listToSort.reversed.toList();
+  }
+  return listToSort;
+}
+
+List<ScoreStruct> reverseList(
+  List<ScoreStruct> list,
+  int numberOfItem,
+) {
+  // reverse score list
+  List<ScoreStruct> newList = [];
+  for (var i = numberOfItem + 1; i < list.length; i++) {
+    newList.add(list[i]);
+  }
+  return newList;
 }

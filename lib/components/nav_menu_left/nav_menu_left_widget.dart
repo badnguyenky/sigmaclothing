@@ -49,10 +49,10 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
       curve: Curves.linear,
-      width: FFAppState().isNavBarCollapsed == false ? 270.0 : 80.0,
+      width: FFAppState().isNavBarCollapsed == false ? 200.0 : 60.0,
       height: double.infinity,
       constraints: const BoxConstraints(
-        maxWidth: 300,
+        maxWidth: 200.0,
       ),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -60,35 +60,36 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
           BoxShadow(
             color: FlutterFlowTheme.of(context).alternate,
             offset: const Offset(
-              1,
-              0,
+              1.0,
+              0.0,
             ),
           )
         ],
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 0, 16),
+        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 16.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 16, 20),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 20.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   if (FFAppState().isNavBarCollapsed == false)
                     Expanded(
                       child: Align(
-                        alignment: const AlignmentDirectional(-1, 0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              5.0, 0.0, 0.0, 0.0),
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(0),
+                            borderRadius: BorderRadius.circular(0.0),
                             child: Image.asset(
-                              'assets/images/sigma-logo.png',
-                              height: 50,
-                              fit: BoxFit.cover,
+                              'assets/images/abcxyz.png',
+                              height: 50.0,
+                              fit: BoxFit.contain,
                             ),
                           ),
                         ),
@@ -107,10 +108,10 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                     child: Icon(
                       Icons.menu_rounded,
                       color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 32,
+                      size: 26.0,
                     ),
                   ),
-                ],
+                ].divide(const SizedBox(width: 8.0)),
               ),
             ),
             MouseRegion(
@@ -150,14 +151,14 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                       FlutterFlowTheme.of(context).primary,
                     ),
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(16),
-                      bottomRight: Radius.circular(0),
-                      topLeft: Radius.circular(16),
-                      topRight: Radius.circular(0),
+                      bottomLeft: Radius.circular(16.0),
+                      bottomRight: Radius.circular(0.0),
+                      topLeft: Radius.circular(16.0),
+                      topRight: Radius.circular(0.0),
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -170,12 +171,12 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                                 : FlutterFlowTheme.of(context).secondaryText,
                             Colors.white,
                           ),
-                          size: 28,
+                          size: 24.0,
                         ),
                         if (FFAppState().isNavBarCollapsed == false)
                           Padding(
-                            padding:
-                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'Dashboard',
                               style: FlutterFlowTheme.of(context)
@@ -236,14 +237,14 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                       FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(16),
-                      bottomRight: Radius.circular(0),
-                      topLeft: Radius.circular(16),
-                      topRight: Radius.circular(0),
+                      bottomLeft: Radius.circular(16.0),
+                      bottomRight: Radius.circular(0.0),
+                      topLeft: Radius.circular(16.0),
+                      topRight: Radius.circular(0.0),
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -256,12 +257,12 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                                 : FlutterFlowTheme.of(context).secondaryText,
                             FlutterFlowTheme.of(context).secondaryText,
                           ),
-                          size: 28,
+                          size: 22.0,
                         ),
                         if (FFAppState().isNavBarCollapsed == false)
                           Padding(
-                            padding:
-                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'Scoreboard',
                               style: FlutterFlowTheme.of(context)
@@ -323,14 +324,14 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                       FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(16),
-                      bottomRight: Radius.circular(0),
-                      topLeft: Radius.circular(16),
-                      topRight: Radius.circular(0),
+                      bottomLeft: Radius.circular(16.0),
+                      bottomRight: Radius.circular(0.0),
+                      topLeft: Radius.circular(16.0),
+                      topRight: Radius.circular(0.0),
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -343,12 +344,12 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                                 : FlutterFlowTheme.of(context).secondaryText,
                             FlutterFlowTheme.of(context).secondaryText,
                           ),
-                          size: 28,
+                          size: 24.0,
                         ),
                         if (FFAppState().isNavBarCollapsed == false)
                           Padding(
-                            padding:
-                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'Cell',
                               style: FlutterFlowTheme.of(context)
@@ -410,14 +411,14 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                       FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(16),
-                      bottomRight: Radius.circular(0),
-                      topLeft: Radius.circular(16),
-                      topRight: Radius.circular(0),
+                      bottomLeft: Radius.circular(16.0),
+                      bottomRight: Radius.circular(0.0),
+                      topLeft: Radius.circular(16.0),
+                      topRight: Radius.circular(0.0),
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -430,12 +431,12 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                                 : FlutterFlowTheme.of(context).secondaryText,
                             FlutterFlowTheme.of(context).secondaryText,
                           ),
-                          size: 28,
+                          size: 24.0,
                         ),
                         if (FFAppState().isNavBarCollapsed == false)
                           Padding(
-                            padding:
-                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'Assign Job',
                               style: FlutterFlowTheme.of(context)
@@ -497,14 +498,14 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                       FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(16),
-                      bottomRight: Radius.circular(0),
-                      topLeft: Radius.circular(16),
-                      topRight: Radius.circular(0),
+                      bottomLeft: Radius.circular(16.0),
+                      bottomRight: Radius.circular(0.0),
+                      topLeft: Radius.circular(16.0),
+                      topRight: Radius.circular(0.0),
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -517,12 +518,12 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                                 : FlutterFlowTheme.of(context).secondaryText,
                             FlutterFlowTheme.of(context).secondaryText,
                           ),
-                          size: 28,
+                          size: 24.0,
                         ),
                         if (FFAppState().isNavBarCollapsed == false)
                           Padding(
-                            padding:
-                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'Popup Settings',
                               style: FlutterFlowTheme.of(context)
@@ -547,70 +548,49 @@ class _NavMenuLeftWidgetState extends State<NavMenuLeftWidget> {
                 ),
               ),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 16, 16),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          if (FFAppState().isNavBarCollapsed == false)
-                            Expanded(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Align(
-                                      alignment: const AlignmentDirectional(1, 0),
-                                      child: Text(
-                                        'SIGMA Sentinel',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: const AlignmentDirectional(1, 0),
-                                      child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
-                                        child: Text(
-                                          'Powered by Connectiv',
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                        ],
+            if (FFAppState().isNavBarCollapsed == false)
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Align(
+                        alignment: const AlignmentDirectional(1.0, 0.0),
+                        child: Text(
+                          'SIGMA Sentinel',
+                          style:
+                              FlutterFlowTheme.of(context).bodyLarge.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
                       ),
-                    ),
-                  ],
+                      Align(
+                        alignment: const AlignmentDirectional(1.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 4.0, 0.0, 0.0),
+                          child: Text(
+                            'Powered by Connectiv',
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ].divide(const SizedBox(height: 12)),
+          ].divide(const SizedBox(height: 12.0)),
         ),
       ),
     );

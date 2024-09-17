@@ -20,14 +20,14 @@ class PopupRecord extends FirestoreRecord {
   String get text => _text ?? '';
   bool hasText() => _text != null;
 
-  // "image" field.
-  String? _image;
-  String get image => _image ?? '';
-  bool hasImage() => _image != null;
+  // "status" field.
+  bool? _status;
+  bool get status => _status ?? false;
+  bool hasStatus() => _status != null;
 
   void _initializeFields() {
     _text = snapshotData['text'] as String?;
-    _image = snapshotData['image'] as String?;
+    _status = snapshotData['status'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -65,12 +65,12 @@ class PopupRecord extends FirestoreRecord {
 
 Map<String, dynamic> createPopupRecordData({
   String? text,
-  String? image,
+  bool? status,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'text': text,
-      'image': image,
+      'status': status,
     }.withoutNulls,
   );
 
@@ -82,11 +82,11 @@ class PopupRecordDocumentEquality implements Equality<PopupRecord> {
 
   @override
   bool equals(PopupRecord? e1, PopupRecord? e2) {
-    return e1?.text == e2?.text && e1?.image == e2?.image;
+    return e1?.text == e2?.text && e1?.status == e2?.status;
   }
 
   @override
-  int hash(PopupRecord? e) => const ListEquality().hash([e?.text, e?.image]);
+  int hash(PopupRecord? e) => const ListEquality().hash([e?.text, e?.status]);
 
   @override
   bool isValidKey(Object? o) => o is PopupRecord;

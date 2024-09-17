@@ -1,4 +1,4 @@
-# Factor App
+# Sigma Clothing
 
 A new Flutter project.
 

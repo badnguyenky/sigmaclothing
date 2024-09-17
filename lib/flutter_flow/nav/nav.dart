@@ -94,20 +94,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const ScoreBoardWidget(),
         ),
         FFRoute(
-          name: 'ScoreView',
-          path: '/scoreView',
-          requireAuth: true,
-          asyncParams: {
-            'job': getDoc(['jobs'], JobsRecord.fromSnapshot),
-          },
-          builder: (context, params) => ScoreViewWidget(
-            job: params.getParam(
-              'job',
-              ParamType.Document,
-            ),
-          ),
-        ),
-        FFRoute(
           name: 'Dashboard',
           path: '/dashboard',
           requireAuth: true,
@@ -118,19 +104,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/addJob',
           requireAuth: true,
           builder: (context, params) => const AddJobWidget(),
-        ),
-        FFRoute(
-          name: 'AddScoreBoard',
-          path: '/addScoreBoard',
-          requireAuth: true,
-          builder: (context, params) => AddScoreBoardWidget(
-            job: params.getParam(
-              'job',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['jobs'],
-            ),
-          ),
         ),
         FFRoute(
           name: 'PopupSettings',
@@ -195,6 +168,33 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             cell: params.getParam(
               'cell',
               ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'ScoreView',
+          path: '/scoreView',
+          requireAuth: true,
+          asyncParams: {
+            'job': getDoc(['jobs'], JobsRecord.fromSnapshot),
+          },
+          builder: (context, params) => ScoreViewWidget(
+            job: params.getParam(
+              'job',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'AddScoreBoard',
+          path: '/addScoreBoard',
+          requireAuth: true,
+          builder: (context, params) => AddScoreBoardWidget(
+            job: params.getParam(
+              'job',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['jobs'],
             ),
           ),
         )
@@ -385,11 +385,11 @@ class FFRoute {
           final child = appStateNotifier.loading
               ? Center(
                   child: SizedBox(
-                    width: 50,
-                    height: 50,
+                    width: 50.0,
+                    height: 50.0,
                     child: SpinKitCircle(
                       color: FlutterFlowTheme.of(context).primary,
-                      size: 50,
+                      size: 50.0,
                     ),
                   ),
                 )
